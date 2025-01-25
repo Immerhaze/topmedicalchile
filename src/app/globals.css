@@ -1,7 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -14,8 +14,56 @@
   }
 }
 
-body {
+body,
+html {
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;
 }
+
+body::-webkit-scrollbar,
+html::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Edge */
+}
+
+.full-screen-bg {
+  background-image: url("https://unsplash.com/es/fotos/estatua-de-mujer-en-topless-utAMCFc1-SY"); /* Ruta de la imagen */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.custom-scrollbar {
+  scrollbar-width: none; /* For Firefox */
+  scrollbar-color: #3b82f6 #ffffff; /* Blue thumb, white track */
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #3b82f6; /* Blue thumb */
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background-color: #ffffff; /* White track */
+  border-bottom: #3b82f6;
+}
+
+/* .scroll-container {
+  height: 100vh; 
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: none; 
+}
+
+.section {
+  scroll-snap-align: start;
+} */
