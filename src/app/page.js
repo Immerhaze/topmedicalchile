@@ -12,9 +12,8 @@ export default function Home() {
   return (
     <div className="scroll-container">
       <AnimationLoader />
-      {/* <Navbar /> */}
+      <Navbar />
       <main>
-        {/* Section with Background Image */}
         <Inicio />
         <Procedures />
         <Doctors />

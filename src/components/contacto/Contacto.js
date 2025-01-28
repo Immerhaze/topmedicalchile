@@ -1,133 +1,80 @@
 export default function Contact() {
-  return (
-    <section className="relative bg-[#FAFAFA] py-12 section">
-      <div className="container mx-auto flex flex-col lg:flex-row items-start justify-between gap-8 px-4">
-        {/* Left Column */}
-        <div className="lg:w-1/2 flex flex-col items-start space-y-6">
-          <img src="/logo.png" alt="Logo" className="w-32 h-auto" />
-          <div>
-            <h2 className="text-2xl font-bold text-gray-800">Contáctanos</h2>
-            <p className="text-gray-600 mt-2">
-              Estamos aquí para ayudarte. Escríbenos o visita nuestras redes
-              sociales.
-            </p>
-          </div>
-          <div>
-            <p className="text-gray-800">
-              📍 <strong>Dirección:</strong> Av. Providencia 1234, Santiago,
-              Chile
-            </p>
-            <p className="text-gray-800">
-              📧 <strong>Email:</strong> contacto@topmedical.cl
-            </p>
-            <p className="text-gray-800">
-              📞 <strong>Teléfono:</strong> +56 9 1234 5678
-            </p>
-          </div>
-          <div className="flex space-x-4">
-            <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-600 hover:text-blue-800"
-            >
-              Facebook
-            </a>
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-pink-600 hover:text-pink-800"
-            >
-              Instagram
-            </a>
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-400 hover:text-blue-600"
-            >
-              Twitter
-            </a>
-          </div>
-        </div>
+  const Contact = [
+    {
+      icono: "icon-[solar--phone-broken]",
+      data: "+569 123 456 78",
+      link: "https://wa.me/56912345678",
+    },
+    {
+      icono: "icon-[solar--inbox-line-broken]",
+      data: "equipo@topmedicachile.cl",
+      link: "mailto:equipo@topmedicachile.cl",
+    },
+  ];
 
-        {/* Right Column */}
-        <div className="lg:w-1/2 bg-white p-8 shadow-lg rounded-lg">
-          <h2 className="text-2xl font-bold text-gray-800">
-            Formulario de Contacto
-          </h2>
-          <form className="mt-6 space-y-4">
-            <div>
-              <label
-                htmlFor="name"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Nombre
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                placeholder="Tu nombre"
-                className="w-full border border-gray-300 rounded-md px-4 py-2 mt-1"
-                required
-              />
-            </div>
-            <div>
-              <label
-                htmlFor="email"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Correo Electrónico
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="Tu correo"
-                className="w-full border border-gray-300 rounded-md px-4 py-2 mt-1"
-                required
-              />
-            </div>
-            <div>
-              <label
-                htmlFor="subject"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Asunto
-              </label>
-              <input
-                type="text"
-                id="subject"
-                name="subject"
-                placeholder="Asunto del mensaje"
-                className="w-full border border-gray-300 rounded-md px-4 py-2 mt-1"
-              />
-            </div>
-            <div>
-              <label
-                htmlFor="message"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Mensaje
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows="4"
-                placeholder="Escribe tu mensaje aquí..."
-                className="w-full border border-gray-300 rounded-md px-4 py-2 mt-1"
-                required
-              ></textarea>
-            </div>
-            <button
-              type="submit"
-              className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition"
+  const Socials = [
+    {
+      icono: "icon-[prime--instagram]",
+      link: "https://instagram.com",
+    },
+    {
+      icono: "icon-[fa6-brands--facebook]",
+      link: "https://facebook.com",
+    },
+  ];
+
+  return (
+    <section className="relative h-screen bg-[#FAFAFA] flex flex-row items-end py-12 section">
+      <div className="w-2/3 h-1/2 flex justify-center items-center">
+        <div className="w-1/2 h-full flex flex-col justify-center space-y-8">
+          <h1 className="text-7xl font-sans font-bold">
+            Comunícate con nosotros!
+          </h1>
+          <p className="text-xl font-serif font-light leading-relaxed tracking-wide">
+            ¿Tienes una pregunta o necesitas asistencia? Nuestro equipo en
+            TopMedical Chile está aquí para ayudarte. Escríbenos un email o por
+            WhatsApp, ¡te esperamos!
+          </p>
+        </div>
+      </div>
+      <div className="w-1/2 h-1/2 flex flex-col justify-center items-center space-y-4">
+        <div className="w-2/3 h-full shadow-md flex flex-col justify-center items-center space-y-4 bg-gray-400/40 rounded-lg p-8">
+          {/* WhatsApp and Email Links */}
+          {Contact.map((via, index) => (
+            <a
+              key={index}
+              href={via.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full h-1/5 bg-white p-4 flex flex-row items-center space-x-4 rounded-md group transition-all duration-300 "
             >
-              Enviar
-            </button>
-          </form>
+              <span
+                className={`${via.icono} text-3xl font-bold text-black group-hover:scale-110`}
+              ></span>
+              <h3 className="text-lg font-light tracking-wide font-sans">
+                {via.data}
+              </h3>
+            </a>
+          ))}
+
+          {/* Social Media Icons */}
+          <div className="w-full flex flex-row justify-start space-x-4">
+            {Socials.map((social, index) => (
+              <a
+                key={index}
+                href={social.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white w-16 h-16 flex group justify-center items-center rounded-lg shadow-md hover:bg-gray-100 transition-all duration-300 "
+              >
+                <span
+                  className={`${social.icono} ${
+                    index == 0 ? "text-4xl" : "text-3xl"
+                  } text-black group-hover:scale-110`}
+                ></span>
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </section>

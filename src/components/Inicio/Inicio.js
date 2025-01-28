@@ -35,7 +35,7 @@ const Inicio = () => {
       <img
         src="/home.jpg"
         alt="Silueta de cuerpo fit"
-        className="w-full fixed"
+        className="w-full fixed brightness-50"
         style={{
           transform: `translateY(${-scrollY * 0.1}px) scale(${
             imageLoaded ? 1 : 1.2

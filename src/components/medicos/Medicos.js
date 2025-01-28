@@ -28,11 +28,16 @@ export default function Doctors() {
 
   return (
     <div className="h-screen relative bg-[#FAFAFA]">
-      <div className="w-full h-full flex flex-row justify-evenly items-center p-8 space-x-4">
+      <div className="h-1/6 w-full flex items-end justify-center">
+        <h1 className="font-sans text-4xl tracking-wide text-center font-bold">
+          Equipo Medico
+        </h1>
+      </div>
+      <div className="w-full h-5/6 flex flex-row justify-evenly items-center p-8 space-x-4">
         {doctors.map((doctor) => (
           <div
             key={doctor.id}
-            className="w-1/3 h-4/5 relative flex flex-col rounded-md overflow-hidden shadow-lg cursor-pointer"
+            className="w-1/3 h-full relative flex flex-col rounded-md overflow-hidden shadow-lg cursor-pointer"
             onMouseEnter={() => setHoveredDoctor(doctor.id)}
             onMouseLeave={() => setHoveredDoctor(null)}
           >
