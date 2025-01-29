@@ -29,9 +29,9 @@ export default function AnimationLoader() {
 
   return (
     <div
-      className={`fixed inset-0 bg-red-200 flex items-center justify-center z-50 transition-all ${
+      className={`fixed inset-0 bg-red-200 flex items-center justify-center transition-all ${
         animationCompleted ? "translate-y-full" : "opacity-100"
-      }`}
+      } z-50`}
       style={{
         transition: "transform 1500ms ease-out, opacity 1s ease-in-out",
         overflow: "hidden",
@@ -41,10 +41,10 @@ export default function AnimationLoader() {
        className={`fixed w-full h-full bg-red-200 flex items-center justify-center z-50 transition-all`}
      > */}
       <div
-        className={`flex flex-col  space-y-8 transition-opacity duration-1000`}
+        className={`flex flex-col justify-center items-center  space-y-8 transition-opacity duration-1000`}
       >
         <h1 className="text-7xl font-sans font-semibold tracking-wide text-center animate-fadeInDown">
-          TOP MEDICAL
+          TOPMEDICAL
         </h1>
         <h2
           className="text-4xl font-sans

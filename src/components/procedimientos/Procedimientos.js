@@ -225,7 +225,7 @@ export default function ProceduresSection() {
       {isLeftArrowVisible && (
         <div
           onClick={() => handleScroll("left")}
-          className="absolute left-4 bg-transparent hover:bg-lime-600/50 bg-green-200 top-1/2 z-50 flex justify-center items-center rounded-full border-2 border-lime-500 cursor-pointer transform -translate-y-1/2"
+          className="absolute left-4 bg-transparent hover:bg-lime-600/50 bg-green-200 top-1/2 z-30 flex justify-center items-center rounded-full border-2 border-lime-500 cursor-pointer transform -translate-y-1/2"
         >
           <span className="icon-[solar--arrow-left-broken] text-7xl text-white"></span>
         </div>
@@ -235,7 +235,7 @@ export default function ProceduresSection() {
 
       <div
         onClick={() => handleScroll("right")}
-        className="absolute right-4 bg-transparent hover:bg-lime-600/50 top-1/2 z-50 flex justify-center items-center rounded-full border-2 border-lime-500 cursor-pointer transform -translate-y-1/2"
+        className="absolute right-4 bg-transparent hover:bg-lime-600/50 top-1/2 z-30 flex justify-center items-center rounded-full border-2 border-lime-500 cursor-pointer transform -translate-y-1/2"
       >
         <span className="icon-[solar--arrow-right-broken] text-7xl text-white"></span>
       </div>
@@ -274,9 +274,12 @@ export default function ProceduresSection() {
             <div
               key={index}
               onClick={() => SelectedCard(index)}
-              className={`relative flex-none transition-all duration-500 ease-in-out h-full group ${
+              className={`relative flex-none h-full group  transition-all duration-500 ${
                 VisibleInfoCard === index ? "w-2/3 flex flex-row" : "w-1/3"
-              }`}
+              } ${isVisible ? "animate-fade-in-right" : "opacity-0"}`}
+              style={{
+                animationDelay: `${index * 300}ms`, // Add staggered delay here
+              }}
             >
               <div className="relative w-[55vh] h-full overflow-hidden z-10">
                 {/* Image */}
@@ -287,7 +290,7 @@ export default function ProceduresSection() {
                     VisibleInfoCard !== null &&
                     VisibleInfoCard !== index &&
                     "grayscale"
-                  } `}
+                  }`}
                 />
                 {/* Procedure Name */}
                 <div

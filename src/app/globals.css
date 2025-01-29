@@ -39,22 +39,6 @@ html::-webkit-scrollbar {
 
 .custom-scrollbar {
   scrollbar-width: none; /* For Firefox */
-  scrollbar-color: #3b82f6 #ffffff; /* Blue thumb, white track */
-}
-
-.custom-scrollbar::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #3b82f6; /* Blue thumb */
-  border-radius: 10px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-track {
-  background-color: #ffffff; /* White track */
-  border-bottom: #3b82f6;
 }
 
 /* .scroll-container {
@@ -67,3 +51,18 @@ html::-webkit-scrollbar {
 .section {
   scroll-snap-align: start;
 } */
+
+@keyframes fadeInCascading {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cascade-animation {
+  animation: fadeInCascading 1s ease-out forwards;
+}

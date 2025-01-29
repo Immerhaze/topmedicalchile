@@ -7,6 +7,7 @@ import Doctors from "@/components/medicos/Medicos";
 import Navbar from "@/components/nav/Navbar";
 import Procedures from "@/components/procedimientos/Procedimientos";
 import AnimationLoader from "@/components/loader/AnimationLoader";
+import About from "@/components/About/about";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <Navbar />
       <main>
         <Inicio />
+        <About />
         <Procedures />
         <Doctors />
         <Contact />

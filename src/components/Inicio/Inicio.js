@@ -37,7 +37,7 @@ const Inicio = () => {
         alt="Silueta de cuerpo fit"
         className="w-full fixed brightness-50"
         style={{
-          transform: `translateY(${-scrollY * 0.1}px) scale(${
+          transform: `translateY(${-scrollY * 0.6}px) scale(${
             imageLoaded ? 1 : 1.2
           })`, // Initial zoom-in and then zoom-out on load
           transition: "transform 1s ease-out", // Smooth zoom-out transition
@@ -45,16 +45,19 @@ const Inicio = () => {
       />
 
       {/* Text content */}
-      <div className="absolute top-0 w-full h-full flex justify-center items-center">
-        <h1
-          className="text-6xl font-semibold text-white font-serif"
-          style={{
-            transform: `translateY(${-scrollY * 0.1}px)`, // Smooth text movement
-            transition: "transform 0.3s ease-out", // Smooth transition for text
-          }}
-        >
-          Tu mejor versión empieza aquí
+      <div
+        className="absolute top-0 w-full h-full flex flex-col space-y-4 justify-center items-center"
+        style={{
+          transform: `translateY(${-scrollY * 0.1}px)`, // Smooth text movement
+          transition: "transform 0.3s ease-out", // Smooth transition for text
+        }}
+      >
+        <h1 className="text-8xl font-semibold text-white font-sans tracking-wide">
+          TOPMEDICAL
         </h1>
+        <h2 className="text-3xl font-normal text-white font-serif tracking-wide">
+          CHILE
+        </h2>
       </div>
     </section>
   );

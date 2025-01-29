@@ -26,7 +26,7 @@ export default function Navbar({ setView }) {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setIsVisible(true);
-    }, 2000); // Time for the fade-in effect
+    }, 3000); // Time for the fade-in effect
 
     return () => {
       clearTimeout(timeout);
@@ -52,15 +52,15 @@ export default function Navbar({ setView }) {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out`}
+      className={`fixed top-0 left-0 w-full z-40 transition-all duration-500 ease-in-out p-4 ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"
+      }`}
       style={{
         transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
       }}
     >
       <div
-        className={`container mx-auto flex items-center justify-between px-4 ${
-          scrolled ? "py-2" : "py-4"
-        } transition-all duration-500 ease-in-out`}
+        className={`container mx-auto flex items-center justify-between px-4`}
       >
         {/* Navigation Links */}
         <nav className="hidden md:flex space-x-6">
@@ -100,7 +100,7 @@ export default function Navbar({ setView }) {
         {/* Logo Section */}
         <div className="flex items-center space-x-3">
           <span
-            className={`text-2xl font-sans tracking-wide font-bold transition-colors duration-500 ease-in-out ${
+            className={`text-2xl font-sans tracking-wide font-bold ${
               scrolled ? "text-black" : "text-white"
             }`}
           >
@@ -110,7 +110,7 @@ export default function Navbar({ setView }) {
 
         {/* Hidden Nav Menu */}
         <div
-          className={`fixed top-0 left-0 w-full h-screen z-50 transition-all duration-500 ease-in-out ${
+          className={`fixed top-0 left-0 w-full h-screen ${
             menuOpen
               ? "opacity-100 backdrop-blur-sm"
               : "opacity-0 pointer-events-none"
@@ -118,7 +118,7 @@ export default function Navbar({ setView }) {
         >
           {/* Child Menu (Navigation) */}
           <div
-            className={`w-2/4 h-full bg-[#fafafa] border-r-8 border-lime-500/40 relative shadow-md flex flex-col justify-evenly p-16 transition-transform duration-500 ease-in-out ${
+            className={`w-2/4 h-full bg-[#fafafa] border-r-8 border-lime-500/40 relative shadow-md flex flex-col justify-evenly p-16 ${
               menuOpen ? "translate-x-0" : "-translate-x-full"
             }`}
           >
@@ -133,9 +133,9 @@ export default function Navbar({ setView }) {
                 key={index + btn}
                 className={`text-6xl flex group ${
                   index % 2 === 0 ? "pl-16" : "pl-32"
-                } cursor-pointer font-serif text-left hover:scale-110 transition-all duration-300`}
+                } cursor-pointer font-serif text-left hover:scale-110`}
               >
-                <span className="icon-[tabler--separator] group-hover:text-lime-400 transition-colors duration-300"></span>
+                <span className="icon-[tabler--separator] group-hover:text-lime-400"></span>
                 {btn}
               </a>
             ))}
@@ -145,7 +145,7 @@ export default function Navbar({ setView }) {
         {/* Mobile Menu Icon */}
         <div className="md:hidden">
           <button
-            className={`focus:outline-none transition-colors duration-500 ease-in-out ${
+            className={`focus:outline-none ${
               scrolled ? "text-black" : "text-white"
             }`}
             onClick={() => setMenuOpen(true)}

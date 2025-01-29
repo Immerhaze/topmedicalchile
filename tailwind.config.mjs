@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 const { addDynamicIconSelectors } = require("@iconify/tailwind");
+import animations from "@midudev/tailwind-animations";
 
 export default {
   content: [
@@ -22,6 +23,10 @@ export default {
           "0%": { opacity: "0", transform: "translateY(20px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
+        fadeInRight: {
+          "0%": { opacity: "0", transform: "translateX(-40px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
       },
       animation: {
         fadeInDown: "fadeInDown 1s ease-out",
@@ -33,5 +38,5 @@ export default {
       },
     },
   },
-  plugins: [addDynamicIconSelectors()],
+  plugins: [addDynamicIconSelectors(), animations],
 };
