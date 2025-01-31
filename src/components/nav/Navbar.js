@@ -65,16 +65,16 @@ export default function Navbar({ setView }) {
         {/* Navigation Links */}
         <nav className="hidden md:flex space-x-6">
           <span
-            className="bg-white hover:text-lime-400 cursor-pointer transition-all duration-300 hover:scale-110 p-2 rounded-full flex justify-center items-center"
+            className="bg-white hover:text-blueish shadow-md cursor-pointer transition-all duration-300 hover:scale-110 p-2 rounded-full flex justify-center items-center"
             onClick={() => setMenuOpen(true)}
           >
-            <span className="icon-[solar--hamburger-menu-broken] text-xl"></span>
+            <span className="icon-[solar--hamburger-menu-broken] text-2xl "></span>
           </span>
           <a
             href="#_"
             className="relative inline-flex items-center justify-center p-4 px-8 py-3 overflow-hidden font-medium transition duration-300 ease-out border-2 bg-white rounded-full shadow-md group group-hover:border-white"
           >
-            <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-lime-400 group-hover:translate-x-0 ease">
+            <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-blueish group-hover:translate-x-0 ease">
               <svg
                 className="w-6 h-6"
                 fill="none"
@@ -90,7 +90,7 @@ export default function Navbar({ setView }) {
                 ></path>
               </svg>
             </span>
-            <span className="absolute uppercase font-bold flex items-center justify-center w-full h-full text-lime-500 transition-all duration-300 transform group-hover:translate-x-full ease">
+            <span className="absolute uppercase font-semibold tracking-wide flex items-center justify-center w-full h-full text-blueish transition-all duration-300 transform group-hover:translate-x-full ease">
               Agendar Ahora
             </span>
             <span className="relative invisible text-base">Agendar Ahora</span>
@@ -100,9 +100,7 @@ export default function Navbar({ setView }) {
         {/* Logo Section */}
         <div className="flex items-center space-x-3">
           <span
-            className={`text-2xl font-sans tracking-wide font-bold ${
-              scrolled ? "text-black" : "text-white"
-            }`}
+            className={`text-2xl font-sans tracking-wide font-bold  text-white`}
           >
             TopMedical Chile
           </span>

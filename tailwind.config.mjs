@@ -11,7 +11,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
+        blueish: "#2779a7",
         foreground: "var(--foreground)",
       },
       keyframes: {

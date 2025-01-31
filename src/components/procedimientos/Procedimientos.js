@@ -225,7 +225,7 @@ export default function ProceduresSection() {
       {isLeftArrowVisible && (
         <div
           onClick={() => handleScroll("left")}
-          className="absolute left-4 bg-transparent hover:bg-lime-600/50 bg-green-200 top-1/2 z-30 flex justify-center items-center rounded-full border-2 border-lime-500 cursor-pointer transform -translate-y-1/2"
+          className="absolute left-4 bg-transparent hover:bg-blueish/50  top-1/2 z-30 flex justify-center items-center rounded-full border-2 border-blueish cursor-pointer transform -translate-y-1/2"
         >
           <span className="icon-[solar--arrow-left-broken] text-7xl text-white"></span>
         </div>
@@ -235,7 +235,7 @@ export default function ProceduresSection() {
 
       <div
         onClick={() => handleScroll("right")}
-        className="absolute right-4 bg-transparent hover:bg-lime-600/50 top-1/2 z-30 flex justify-center items-center rounded-full border-2 border-lime-500 cursor-pointer transform -translate-y-1/2"
+        className="absolute right-4 bg-transparent hover:bg-blueish/50 top-1/2 z-30 flex justify-center items-center rounded-full border-2 border-blueish cursor-pointer transform -translate-y-1/2"
       >
         <span className="icon-[solar--arrow-right-broken] text-7xl text-white"></span>
       </div>
@@ -326,24 +326,24 @@ export default function ProceduresSection() {
                   VisibleInfoCard === index
                     ? "absolute right-0"
                     : "absolute top-0"
-                } w-1/2 h-full bg-red-400 flex flex-col text-xl overflow-hidden transition-all duration-500 ease-in-out`}
+                } w-1/2 h-full flex flex-col text-xl overflow-hidden transition-all duration-500 ease-in-out`}
               >
-                <div className="w-full h-1/5 bg-green-200 relative flex justify-center items-center">
-                  <span className="absolute top-0 text-9xl font-sans uppercase whitespace-nowrap font-bold text-black/5">
+                <div className="w-full h-1/5 bg-blueish/70 relative flex justify-center items-center">
+                  <span className="absolute top-0 text-9xl font-sans uppercase whitespace-nowrap font-bold text-white/10">
                     {procedure.name}
                   </span>
                   <span
-                    className="icon-[solar--close-circle-broken] absolute top-4 right-4 text-4xl font-bold text-black cursor-pointer hover:scale-125 transition-transform duration-300"
+                    className="icon-[solar--close-circle-broken] absolute top-4 right-4 text-4xl font-bold text-white cursor-pointer hover:scale-125 transition-transform duration-300"
                     onClick={() => setVisibleInfoCard(null)}
                   ></span>
-                  <h1 className="text-4xl font-sans font-semibold uppercase text-center">
+                  <h1 className="text-4xl font-sans font-semibold uppercase text-center text-white">
                     {procedure.name}
                   </h1>
                 </div>
-                <div className="w-full h-1/5 font-serif bg-green-300 relative flex justify-center items-center p-8">
+                <div className="w-full h-1/5 text-white font-serif bg-blueish relative flex justify-center items-center p-8">
                   {procedure.details}
                 </div>
-                <div className="w-full h-1/5 bg-green-400 space-x-4 relative flex flex-row justify-start items-center p-8">
+                <div className="w-full h-1/5 bg-blueish text-white space-x-4 relative flex flex-row justify-start items-center p-8">
                   <span className="icon-[solar--clock-circle-broken]  text-5xl"></span>{" "}
                   <span className="font-bold font-sans text-2xl">
                     Duración:
@@ -352,7 +352,7 @@ export default function ProceduresSection() {
                     {procedure.duration} aprox.
                   </p>
                 </div>
-                <div className="w-full h-1/5 bg-green-500 space-x-4 relative flex flex-row justify-start items-center p-8">
+                <div className="w-full h-1/5 text-white bg-blueish space-x-4 relative flex flex-row justify-start items-center p-8">
                   <span className="icon-[solar--health-broken] text-5xl"></span>
                   <span className="font-bold font-sans text-2xl">
                     Recuperación:{" "}
@@ -361,7 +361,7 @@ export default function ProceduresSection() {
                     {procedure.recuperation} aprox.
                   </p>
                 </div>
-                <div className="w-full h-1/5 bg-green-600 space-x-4 relative flex flex-row justify-start items-center p-8">
+                <div className="w-full h-1/5 text-white bg-blueish space-x-4 relative flex flex-row justify-start items-center p-8">
                   <span className="icon-[solar--money-bag-broken] text-5xl"></span>
                   <span className="font-bold text-2xl font-sans">Precio: </span>
                   <p className="text-xl font-serif">desde {procedure.price}</p>
