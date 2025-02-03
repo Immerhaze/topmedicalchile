@@ -70,6 +70,7 @@ export default function Doctors() {
         <div className="w-full h-full bg-blueish flex flex-col space-y-4 p-8 overflow-hidden">
           {doctors.map((doc, index) => (
             <div
+              key={index}
               className={`w-full h-1/2 flex ${
                 index == 0 ? "flex-row " : " flex-row-reverse "
               } `}
@@ -108,12 +109,12 @@ export default function Doctors() {
                   </div>
                   <a
                     href="#_"
-                    class="relative w-32 flex  justify-center items-center font-bold  group"
+                    className="relative w-32 flex  justify-center items-center font-bold  group"
                   >
-                    <span class="absolute inset-0 w-full h-full transition duration-300 ease-out transform -translate-x-2 -translate-y-2 bg-blue-900/30 group-hover:bg-white group-hover:translate-x-0 group-hover:translate-y-0  rounded-tl-lg rounded-br-lg"></span>
-                    <span class="absolute inset-0 w-full h-full border-2 border-white group-hover:border-white rounded-tl-lg rounded-br-lg "></span>
-                    <span class="relative flex flex-row justify-center items-center space-x-2 tracking-wide text-white font-sans  group-hover:text-black">
-                      <span class="icon-[tabler--circle-dashed-plus] text-2xl "></span>
+                    <span className="absolute inset-0 w-full h-full transition duration-300 ease-out transform -translate-x-2 -translate-y-2 bg-blue-900/30 group-hover:bg-white group-hover:translate-x-0 group-hover:translate-y-0  rounded-tl-lg rounded-br-lg"></span>
+                    <span className="absolute inset-0 w-full h-full border-2 border-white group-hover:border-white rounded-tl-lg rounded-br-lg "></span>
+                    <span className="relative flex flex-row justify-center items-center space-x-2 tracking-wide text-white font-sans  group-hover:text-black">
+                      <span className="icon-[tabler--circle-dashed-plus] text-2xl "></span>
                       <h3>Más info</h3>
                     </span>
                   </a>

@@ -1,8 +1,8 @@
 export default function Footer() {
   return (
-    <footer className="bg-gray-800 relative  bg-[#FAFAFA] h-[50vh] flex flex-col justify-center items-center">
+    <footer className="bg-blueish relative  bg-[#FAFAFA] h-[50vh] flex flex-col justify-center items-center">
       <div className="text-center">
-        <p className="text-sm">
+        <p className="text-sm text-white">
           © {new Date().getFullYear()} TopMedical Chile. Todos los derechos
           reservados.
         </p>

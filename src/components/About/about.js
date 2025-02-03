@@ -46,7 +46,7 @@ export default function About() {
     >
       {/* Left Image */}
       <div
-        className="w-1/3 flex justify-center items-center p-32"
+        className=" w-1/2 md:w-1/3 flex  justify-start  items-start md:justify-center md:items-center"
         style={{
           transform: `translateY(${offsetY}px)`,
           transition: "transform 0.3s ease-out",
@@ -55,21 +55,21 @@ export default function About() {
         <img
           src="./pabellonabout.jpg"
           alt="Doctor at a surgery"
-          className="object-contain max-w-full h-auto border-white border-r-4 pr-4"
+          className="object-contain max-w-full h-auto border-white border-r-4 border-b-4 pr-4"
         />
       </div>
 
       {/* Center Text with Parallax Effect */}
       <div
-        className="w-1/3 flex flex-col justify-start p-16"
+        className="md:w-1/3 absolute  left-1/2 sm:static  flex flex-col justify-start lg:justify-center  pl-4 md:pl-8 "
         style={{
           transform: `translateY(${scrollY * 0.1}px)`, // Adjust parallax intensity
         }}
       >
-        <h1 className="text-6xl font-semibold text-white mb-4 font-serif">
+        <h1 className=" text-xl  md:text-5xl font-semibold text-white mb-4 font-serif">
           Excelencia en procedimientos estéticos
         </h1>
-        <p className="text-lg text-white leading-relaxed font-sans">
+        <p className="hidden md:flex md:text-lg text-white leading-relaxed font-sans">
           Nos enfocamos en ti, ofreciéndote soluciones estéticas seguras y
           personalizadas, con un equipo de expertos que siempre está al día con
           los últimos avances.
@@ -78,7 +78,7 @@ export default function About() {
 
       {/* Right Image */}
       <div
-        className="w-1/3 flex justify-center items-center"
+        className="w-1/2 md:w-1/3   flex justify-end items-end pb-4"
         style={{
           transform: `translateY(${offsetY}px)`,
           transition: "transform 0.3s ease-out",
@@ -87,7 +87,7 @@ export default function About() {
         <img
           src="./statue.jpg"
           alt="Statue of a naked woman"
-          className="h-1/3 border-white border-l-4 pl-4"
+          className="w-full md:w-3/4 border-white border-l-4 border-t-4 pl-4"
         />
       </div>
     </div>

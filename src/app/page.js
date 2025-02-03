@@ -18,9 +18,9 @@ export default function Home() {
         <Inicio />
         <About />
         <Procedures />
-        <Doctors />
+        {/*<Doctors />
         <Contact />
-        <Footer />
+        <Footer /> */}
       </main>
     </div>
   );

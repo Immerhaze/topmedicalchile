@@ -219,15 +219,15 @@ export default function ProceduresSection() {
   return (
     <section
       ref={parentRef}
-      className="parent relative h-screen bg-[#FAFAFA] section flex flex-col"
+      className="relative h-screen bg-[#FAFAFA] flex flex-col"
     >
       {/* Left Arrow */}
       {isLeftArrowVisible && (
         <div
           onClick={() => handleScroll("left")}
-          className="absolute left-4 bg-transparent hover:bg-blueish/50  top-1/2 z-30 flex justify-center items-center rounded-full border-2 border-blueish cursor-pointer transform -translate-y-1/2"
+          className="absolute left-4 bg-white  top-1/2 z-30 flex justify-center items-center rounded-full border-2  border-blueish cursor-pointer transform -translate-y-1/2"
         >
-          <span className="icon-[solar--arrow-left-broken] text-7xl text-white"></span>
+          <span className="icon-[solar--arrow-left-broken] text-4xl text-blueish"></span>
         </div>
       )}
 
@@ -235,24 +235,24 @@ export default function ProceduresSection() {
 
       <div
         onClick={() => handleScroll("right")}
-        className="absolute right-4 bg-transparent hover:bg-blueish/50 top-1/2 z-30 flex justify-center items-center rounded-full border-2 border-blueish cursor-pointer transform -translate-y-1/2"
+        className="absolute right-4  bg-white  top-1/2 z-30 flex justify-center items-center rounded-full border-2 border-blueish cursor-pointer transform -translate-y-1/2"
       >
-        <span className="icon-[solar--arrow-right-broken] text-7xl text-white"></span>
+        <span className="icon-[solar--arrow-right-broken] text-4xl text-blueish"></span>
       </div>
 
-      {/* Cards */}
-      <div className="h-full flex flex-col justify-evenly">
-        <div className=" h-1/5 flex flex-col justify-end py-12 space-y-8 ">
+      {/*full screen cards container*/}
+      <div className="h-full w-full flex flex-col">
+        <div className=" h-1/5 flex flex-col justify-center py-12 space-y-8  p-4">
           {/* <span className="block border-t-[0.5px] border-black/30 w-2/3 ml-[40vh]"></span> */}
           <h2
-            className={`pl-[40vh] text-base font-bold  text-gray-800 font-sans  ${
+            className={`md:pl-[20vh] text-sm md:text-lg font-bold  text-gray-800 font-sans  ${
               isVisible ? "animate-fadeInUp" : "opacity-0"
             }`}
           >
             Procedimientos & Tratamientos
           </h2>
           <p
-            className={`pl-[40vh] text-xl font-bold  text-gray-800 font-serif ${
+            className={`md:pl-[20vh] text-base md:text-xl font-bold  text-gray-800 font-serif ${
               isVisible ? "animate-fadeInUp" : "opacity-0"
             }`}
           >
@@ -261,7 +261,7 @@ export default function ProceduresSection() {
         </div>
         <div
           ref={scrollRef}
-          className="custom-scrollbar flex  flex-nowrap overflow-x-auto w-full h-[70vh] pl-[40vh] cursor-grab"
+          className=" custom-scrollbar  flex flex-nowrap overflow-x-auto w-full h-full md:pl-[20vh]   py-8 cursor-grab"
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUpOrLeave}
@@ -270,23 +270,28 @@ export default function ProceduresSection() {
             scrollBehavior: isDragging ? "auto" : "smooth",
           }}
         >
+          {/* card */}
+
           {procedures.map((procedure, index) => (
             <div
               key={index}
-              onClick={() => SelectedCard(index)}
-              className={`relative flex-none h-full group  transition-all duration-500 ${
-                VisibleInfoCard === index ? "w-2/3 flex flex-row" : "w-1/3"
-              } ${isVisible ? "animate-fade-in-right" : "opacity-0"}`}
+              className={`relative flex-none h-full  group transition-all duration-500 border-2 ${
+                VisibleInfoCard === index
+                  ? "w-[100%]  md:w-[98%] lg:w-[58%] "
+                  : "w-[100%]  md:w-[90%] lg:w-[40%]"
+              } ${
+                isVisible ? "animate-fade-in-right" : "opacity-0"
+              } overflow-hidden `}
               style={{
                 animationDelay: `${index * 300}ms`, // Add staggered delay here
               }}
             >
-              <div className="relative w-[55vh] h-full overflow-hidden z-10">
+              <div className="relative w-full h-full overflow-hidden z-20 ">
                 {/* Image */}
                 <img
                   src={procedure.image}
                   alt={procedure.name}
-                  className={`w-[55vh] h-full object-cover transition-all duration-500 group-hover:scale-110 ${
+                  className={`w-full opacity-100 h-full object-cover transition-all duration-500 lg:group-hover:scale-110 ${
                     VisibleInfoCard !== null &&
                     VisibleInfoCard !== index &&
                     "grayscale"
@@ -295,76 +300,86 @@ export default function ProceduresSection() {
                 {/* Procedure Name */}
                 <div
                   className={`w-full h-full ${
-                    VisibleInfoCard !== index && "group-hover:bg-black/40"
+                    VisibleInfoCard !== index && "lg:group-hover:bg-black/40"
                   } absolute bottom-0 left-0 right-0 flex items-end`}
                 >
-                  <div className="h-1/2 flex flex-col justify-center px-8 text-white text-left space-y-4 tracking-wide">
+                  <div className="h-1/2 flex flex-col justify-end px-8 text-white text-left tracking-wide py-4 space-y-4">
                     <h2 className="text-lg font-bold font-sans">
                       {procedure.name}
                     </h2>
                     <p className="text-2xl font-medium whitespace-pre-line font-serif">
                       {procedure.description}
                     </p>
-
                     <button
-                      className={`bg-white hover:scale-105 rounded-md p-2 w-1/3 text-black flex justify-center items-center transition-all duration-500  translate-y-4 ${
-                        VisibleInfoCard === index ? "opacity-100" : "opacity-0"
-                      }`}
+                      onClick={() => SelectedCard(index)}
+                      className="bg-white group  rounded-md w-[70%] text-black flex flex-row justify-center items-center transition-all duration-500"
                     >
-                      <span className="icon-[line-md--plus-circle] mx-1 text-3xl transition-colors duration-300"></span>
-                      <h3 className="text-xl font-sans font-semibold">
-                        Más Info
+                      <span className="icon-[line-md--plus-circle]  block group-hover:text-blueish  transition-all duration-300 text-lg md:text-2xl mr-2"></span>
+
+                      <h3 className="text-base md:text-lg font-sans font-semibold">
+                        Más Información
                       </h3>
                     </button>
                   </div>
                 </div>
               </div>
-
-              {/* Info Card */}
               <div
-                className={`${
-                  VisibleInfoCard === index
-                    ? "absolute right-0"
-                    : "absolute top-0"
-                } w-1/2 h-full flex flex-col text-xl overflow-hidden transition-all duration-500 ease-in-out`}
+                className={`absolute top-0 w-full h-full  z-30 transition-transform duration-[1500ms] ease-out`}
+                style={{
+                  transform: `translateX(${
+                    VisibleInfoCard === index ? "0%" : "-100%"
+                  })`,
+
+                  transition: "transform 1s ease-out",
+                  overflow: "hidden",
+                }}
               >
-                <div className="w-full h-1/5 bg-blueish/70 relative flex justify-center items-center">
-                  <span className="absolute top-0 text-9xl font-sans uppercase whitespace-nowrap font-bold text-white/10">
-                    {procedure.name}
-                  </span>
-                  <span
-                    className="icon-[solar--close-circle-broken] absolute top-4 right-4 text-4xl font-bold text-white cursor-pointer hover:scale-125 transition-transform duration-300"
-                    onClick={() => setVisibleInfoCard(null)}
-                  ></span>
-                  <h1 className="text-4xl font-sans font-semibold uppercase text-center text-white">
-                    {procedure.name}
-                  </h1>
-                </div>
-                <div className="w-full h-1/5 text-white font-serif bg-blueish relative flex justify-center items-center p-8">
-                  {procedure.details}
-                </div>
-                <div className="w-full h-1/5 bg-blueish text-white space-x-4 relative flex flex-row justify-start items-center p-8">
-                  <span className="icon-[solar--clock-circle-broken]  text-5xl"></span>{" "}
-                  <span className="font-bold font-sans text-2xl">
-                    Duración:
-                  </span>
-                  <p className="font-serif text-xl">
-                    {procedure.duration} aprox.
-                  </p>
-                </div>
-                <div className="w-full h-1/5 text-white bg-blueish space-x-4 relative flex flex-row justify-start items-center p-8">
-                  <span className="icon-[solar--health-broken] text-5xl"></span>
-                  <span className="font-bold font-sans text-2xl">
-                    Recuperación:{" "}
-                  </span>
-                  <p className="font-serif text-xl">
-                    {procedure.recuperation} aprox.
-                  </p>
-                </div>
-                <div className="w-full h-1/5 text-white bg-blueish space-x-4 relative flex flex-row justify-start items-center p-8">
-                  <span className="icon-[solar--money-bag-broken] text-5xl"></span>
-                  <span className="font-bold text-2xl font-sans">Precio: </span>
-                  <p className="text-xl font-serif">desde {procedure.price}</p>
+                <div className={`w-full h-full flex flex-col text-xl `}>
+                  <div className="w-full h-1/5 bg-blueish/70 relative flex justify-center items-center">
+                    <span className="absolute top-0 text-9xl font-sans uppercase whitespace-nowrap font-bold text-white/10">
+                      {procedure.name}
+                    </span>
+                    <span
+                      className="icon-[solar--close-circle-broken] absolute top-4 right-4 text-4xl font-bold text-white cursor-pointer lg:hover:scale-125 transition-transform duration-300"
+                      onClick={() => setVisibleInfoCard(null)}
+                    ></span>
+                    <h1 className="text-4xl  font-sans font-semibold uppercase text-center text-white">
+                      {procedure.name}
+                    </h1>
+                  </div>
+                  <div className="w-full h-1/5  px-8  text-base md:text-lg   text-white font-serif bg-blueish relative flex justify-center items-center p-8">
+                    {procedure.details}
+                  </div>
+                  <div className="w-full h-1/5 lg:px-8 bg-blueish text-white space-x-4 relative flex flex-row justify-start items-center p-8">
+                    <span className="icon-[solar--clock-circle-broken]  text-3xl md:text-4xl lg:text-5xl"></span>{" "}
+                    <span className="font-bold font-sans text-xl md:text-2xl lg:text-3xl ">
+                      Duración:
+                    </span>
+                    <p className="font-serif text-lg lg:text-2xl">
+                      {procedure.duration} aprox.
+                    </p>
+                  </div>
+
+                  <div className="w-full h-1/5 lg:px-8 text-white bg-blueish space-x-4 relative flex flex-row justify-start items-center p-8">
+                    <span className="icon-[solar--money-bag-broken] text-3xl md:text-4xl lg:text-5xl"></span>
+                    <span className="font-bold text-xl md:text-2xl lg:text-3xl font-sans">
+                      Precio:{" "}
+                    </span>
+                    <p className="text-lg lg:text-2xl font-serif">
+                      desde {procedure.price}
+                    </p>
+                  </div>
+                  <div className="w-full h-1/5 lg:px-8 text-white bg-blueish space-x-4 relative flex justify-center items-center p-8">
+                    <button className="w-full flex flex-row justify-center group/arrow items-center transition-all duration-500">
+                      <h3 className="font-serif font-normal text-xl md:text-2xl lg:text-3xl group-hover/arrow:underline group-hover/arrow:underline-offset-2">
+                        Ver procedimiento
+                      </h3>
+                      <span
+                        className="icon-[solar--arrow-right-broken] hidden lg:block  group-hover/arrow:translate-x-10 transition-all duration-300 text-5xl
+                       ml-2"
+                      ></span>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>

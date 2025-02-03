@@ -37,16 +37,13 @@ export default function AnimationLoader() {
         overflow: "hidden",
       }}
     >
-      {/* <div
-       className={`fixed w-full h-full bg-red-200 flex items-center justify-center z-50 transition-all`}
-     > */}
       <div
         className={`flex flex-col justify-center items-center text-white  space-y-8 transition-opacity duration-1000`}
       >
-        <h1 className="text-8xl font-semibold text-white font-sans tracking-wide">
+        <h1 className="text-5xl md:text-6xl lg:text-8xl font-semibold text-white font-sans tracking-wide">
           TOPMEDICAL
         </h1>
-        <h2 className="text-3xl font-normal text-white font-serif tracking-wide">
+        <h2 className="text-3xl md:text-3xl font-normal text-white font-serif tracking-wide">
           CHILE
         </h2>
       </div>
