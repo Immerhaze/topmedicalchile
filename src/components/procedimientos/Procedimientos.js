@@ -112,6 +112,7 @@ export default function ProceduresSection() {
   const [scrollLeft, setScrollLeft] = useState(0);
   const [scrollPosition, setScrollPosition] = useState(0);
 
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [VisibleInfoCard, setVisibleInfoCard] = useState(null);
 
   const parentRef = useRef(null); // Ref for the parent container
@@ -135,17 +136,28 @@ export default function ProceduresSection() {
   };
 
   const handleScroll = (direction) => {
-    if (!scrollRef.current) return;
-
-    const containerWidth = scrollRef.current.offsetWidth;
-    const scrollOffset = containerWidth / 3; // Move by one item width
-
+    const numCards = procedures.length;
     if (direction === "left") {
-      scrollRef.current.scrollLeft -= scrollOffset;
+      setCurrentIndex((prevIndex) =>
+        prevIndex === 0 ? numCards - 1 : prevIndex - 1
+      );
     } else if (direction === "right") {
-      scrollRef.current.scrollLeft += scrollOffset;
+      setCurrentIndex((prevIndex) =>
+        prevIndex === numCards - 1 ? 0 : prevIndex + 1
+      );
     }
   };
+
+  useEffect(() => {
+    if (scrollRef.current) {
+      const cardWidth = scrollRef.current.offsetWidth;
+      const scrollLeft = currentIndex * cardWidth;
+      scrollRef.current.scrollTo({
+        left: scrollLeft,
+        behavior: "smooth",
+      });
+    }
+  }, [currentIndex]);
 
   function SelectedCard(index) {
     // Check if the clicked item is already selected
@@ -275,18 +287,16 @@ export default function ProceduresSection() {
           {procedures.map((procedure, index) => (
             <div
               key={index}
-              className={`relative flex-none h-full  group transition-all duration-500 border-2 ${
+              className={`relative flex-none h-full overflow-hidden group transition-all duration-500  ${
                 VisibleInfoCard === index
                   ? "w-[100%]  md:w-[98%] lg:w-[58%] "
                   : "w-[100%]  md:w-[90%] lg:w-[40%]"
-              } ${
-                isVisible ? "animate-fade-in-right" : "opacity-0"
-              } overflow-hidden `}
+              } ${isVisible ? "animate-fade-in-right" : "opacity-0"}`}
               style={{
                 animationDelay: `${index * 300}ms`, // Add staggered delay here
               }}
             >
-              <div className="relative w-full h-full overflow-hidden z-20 ">
+              <div className="relative w-full h-full ">
                 {/* Image */}
                 <img
                   src={procedure.image}
@@ -324,17 +334,18 @@ export default function ProceduresSection() {
                 </div>
               </div>
               <div
-                className={`absolute top-0 w-full h-full  z-30 transition-transform duration-[1500ms] ease-out`}
+                className={`absolute top-0 w-full h-full  transition-transform duration-[1500ms] ease-out`}
                 style={{
                   transform: `translateX(${
                     VisibleInfoCard === index ? "0%" : "-100%"
                   })`,
 
                   transition: "transform 1s ease-out",
-                  overflow: "hidden",
                 }}
               >
-                <div className={`w-full h-full flex flex-col text-xl `}>
+                <div
+                  className={`w-full h-full flex flex-col  overflow-hidden `}
+                >
                   <div className="w-full h-1/5 bg-blueish/70 relative flex justify-center items-center">
                     <span className="absolute top-0 text-9xl font-sans uppercase whitespace-nowrap font-bold text-white/10">
                       {procedure.name}
@@ -347,7 +358,7 @@ export default function ProceduresSection() {
                       {procedure.name}
                     </h1>
                   </div>
-                  <div className="w-full h-1/5  px-8  text-base md:text-lg   text-white font-serif bg-blueish relative flex justify-center items-center p-8">
+                  <div className="w-full h-1/5  px-8  text-base md:text-lg lg:text-xl xl:text-2xl  text-white font-serif bg-blueish relative flex justify-center items-center p-8">
                     {procedure.details}
                   </div>
                   <div className="w-full h-1/5 lg:px-8 bg-blueish text-white space-x-4 relative flex flex-row justify-start items-center p-8">

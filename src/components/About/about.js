@@ -12,25 +12,11 @@ export default function About() {
     const handleScroll = () => {
       if (!aboutRef.current) return;
 
-      const rect = aboutRef.current.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-      const middleScreen = windowHeight / 2;
-      const componentMiddle = rect.top + rect.height / 2;
-
-      // Calculate blur effect
-      if (componentMiddle <= middleScreen) {
-        setBlurAmount(0);
-      } else {
-        const distanceFromCenter =
-          (componentMiddle - middleScreen) / (windowHeight / 2);
-        setBlurAmount(Math.min(10, Math.max(0, distanceFromCenter * 10)));
-      }
-
       // Update scroll position
       setScrollY(window.scrollY);
 
       // Update parallax offset (reduce as it scrolls up)
-      setOffsetY(Math.max(0, 100 - window.scrollY * 30)); // Adjust speed factor
+      setOffsetY(Math.max(0, 50 - window.scrollY * 30)); // Adjust speed factor
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -42,11 +28,11 @@ export default function About() {
   return (
     <div
       ref={aboutRef}
-      className="relative flex flex-row bg-blueish w-full h-[80vh] transition-all duration-300"
+      className="relative flex flex-col  bg-blueish py-8  h-screen transition-all duration-300"
     >
       {/* Left Image */}
       <div
-        className=" w-1/2 md:w-1/3 flex  justify-start  items-start md:justify-center md:items-center"
+        className="w-full h-1/3 lg:h-2/5 flex justify-start items-start  md:items-center"
         style={{
           transform: `translateY(${offsetY}px)`,
           transition: "transform 0.3s ease-out",
@@ -55,21 +41,34 @@ export default function About() {
         <img
           src="./pabellonabout.jpg"
           alt="Doctor at a surgery"
-          className="object-contain max-w-full h-auto border-white border-r-4 border-b-4 pr-4"
+          className="object-cover w-1/2 h-full border-white border-r-4 border-t-4  pr-4"
         />
       </div>
 
       {/* Center Text with Parallax Effect */}
-      <div
-        className="md:w-1/3 absolute  left-1/2 sm:static  flex flex-col justify-start lg:justify-center  pl-4 md:pl-8 "
-        style={{
-          transform: `translateY(${scrollY * 0.1}px)`, // Adjust parallax intensity
-        }}
-      >
-        <h1 className=" text-xl  md:text-5xl font-semibold text-white mb-4 font-serif">
+      <div className="w-full h-1/3 lg:h-1/5 bg-white  relative  flex flex-col justify-center items-center lg:justify-center">
+        {/* Background Moving Text */}
+        <div class="marquee-text absolute">
+          <div class="marquee-text-track text-[9rem] text-black/5 font-sans uppercase whitespace-nowrap font-bold ">
+            <p>Ars Medica, Perfectio Vitae</p>
+            <p>Summum Medicinae, Summum Officium </p>
+            <p>Ad Culmen Medicinae Perfectionis </p>
+            <p>Praestantia Medica, Salus Populi</p>
+            <p>Medicina Absoluta, Vita Absoluta</p>
+            <p>Eximia Medicina, Eximia Cura</p>
+            <p aria-hidden="true">Ars Medica, Perfectio Vitae</p>
+            <p aria-hidden="true">Summum Medicinae, Summum Officium </p>
+            <p aria-hidden="true">Ad Culmen Medicinae Perfectionis </p>
+            <p aria-hidden="true">Praestantia Medica, Salus Populi</p>
+            <p aria-hidden="true">Medicina Absoluta, Vita Absoluta</p>
+            <p aria-hidden="true">Eximia Medicina, Eximia Cura</p>
+          </div>
+        </div>
+
+        <h1 className=" text-3xl md:text-3xl lg:text-4xl text-center  font-semibold text-blueish mb-4 font-serif">
           Excelencia en procedimientos estéticos
         </h1>
-        <p className="hidden md:flex md:text-lg text-white leading-relaxed font-sans">
+        <p className="hidden md:flex md:text-lg lg:text-xl lg:px-12 text-center font-sem text-blueish leading-relaxed font-sans">
           Nos enfocamos en ti, ofreciéndote soluciones estéticas seguras y
           personalizadas, con un equipo de expertos que siempre está al día con
           los últimos avances.
@@ -78,7 +77,7 @@ export default function About() {
 
       {/* Right Image */}
       <div
-        className="w-1/2 md:w-1/3   flex justify-end items-end pb-4"
+        className=" w-full h-1/3 lg:h-2/5 flex justify-end items-end"
         style={{
           transform: `translateY(${offsetY}px)`,
           transition: "transform 0.3s ease-out",
@@ -87,7 +86,7 @@ export default function About() {
         <img
           src="./statue.jpg"
           alt="Statue of a naked woman"
-          className="w-full md:w-3/4 border-white border-l-4 border-t-4 pl-4"
+          className="w-1/2 h-full object-cover object-top border-white border-l-4 border-b-4 pl-4"
         />
       </div>
     </div>

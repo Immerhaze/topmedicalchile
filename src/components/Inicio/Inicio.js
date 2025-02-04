@@ -30,17 +30,14 @@ const Inicio = () => {
   }, []);
 
   return (
-    <section
-      className="relative w-full h-screen section overflow-hidden
-    "
-    >
+    <section className="relative w-full h-screen section">
       {/* Parallax background image with zoom-out effect */}
       <img
         src="/home.jpg"
         alt="Silueta de cuerpo fit"
-        className=" h-full md:w-full fixed brightness-50 object-cover"
+        className=" h-screen md:w-full fixed brightness-50 object-cover object-top"
         style={{
-          transform: `translateY(${-scrollY * 0.6}px) scale(${
+          transform: `scale(${1 + scrollY * 0.0001}) scale(${
             imageLoaded ? 1 : 1.2
           })`, // Initial zoom-in and then zoom-out on load
           transition: "transform 1s ease-out", // Smooth zoom-out transition
@@ -51,7 +48,7 @@ const Inicio = () => {
       <div
         className="absolute top-0 w-full h-full flex flex-col space-y-4 justify-center items-center"
         style={{
-          transform: `translateY(${-scrollY * 0.1}px)`, // Smooth text movement
+          transform: `translateY(${-scrollY * 0.4}px)`, // Smooth text movement
           transition: "transform 0.3s ease-out", // Smooth transition for text
         }}
       >

@@ -41,16 +41,29 @@ html::-webkit-scrollbar {
   scrollbar-width: none; /* For Firefox */
 }
 
-/* .scroll-container {
-  height: 100vh; 
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-  scrollbar-width: none; 
+/* Infinite Scrolling Animations */
+.marquee-text {
+  overflow: clip;
 }
 
-.section {
-  scroll-snap-align: start;
-} */
+.marquee-text-track {
+  display: flex;
+  padding-left: 4.8rem;
+  gap: 4.8rem;
+  width: max-content;
+  animation: marquee-move-text var(--speed, 200s) linear infinite
+    var(--direction, forwards);
+}
+
+.marquee-text p {
+  padding: 2rem 2.5rem;
+}
+
+@keyframes marquee-move-text {
+  to {
+    transform: translateX(-50%);
+  }
+}
 
 @keyframes fadeInCascading {
   0% {
