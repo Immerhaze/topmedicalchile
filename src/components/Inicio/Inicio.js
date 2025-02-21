@@ -30,12 +30,12 @@ const Inicio = () => {
   }, []);
 
   return (
-    <section className="relative w-full h-screen section">
+    <section className=" w-full h-screen overflow-hidden ">
       {/* Parallax background image with zoom-out effect */}
       <img
         src="/home.jpg"
         alt="Silueta de cuerpo fit"
-        className=" h-screen md:w-full fixed brightness-50 object-cover object-top"
+        className=" h-screen md:w-full  brightness-50 object-cover object-top"
         style={{
           transform: `scale(${1 + scrollY * 0.0001}) scale(${
             imageLoaded ? 1 : 1.2

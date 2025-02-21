@@ -24,7 +24,7 @@ export default function Contact() {
   ];
 
   return (
-    <section className="relative h-screen flex items-end justify-center">
+    <section className="h-screen flex items-end justify-center">
       {/* Parallax Background */}
       <div
         className="absolute top-0 left-0 w-full h-full  bg-top bg-cover"
@@ -35,7 +35,7 @@ export default function Contact() {
       <div className="relative w-full h-full md:h-2/3 bg-gradient-to-b from-white to-transparent md:bg-white/60 lg:bg-white/80 shadow-lg flex flex-col lg:flex-row justify-evenly items-center p-4 md:p-8">
         <div className="w-full h-1/2   flex flex-col justify-center items-center space-y-8 lg:px-8">
           <span className="absolute top-0 text-6xl md:text-9xl font-sans uppercase whitespace-nowrap font-bold text-black/5">
-            <text>TOPMEDICAL</text>
+            <h1>TOPMEDICAL</h1>
           </span>
           <h1 className="text-4xl md:text-5xl font-sans font-bold">
             ¡Comunícate con nosotros!

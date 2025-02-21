@@ -51,13 +51,13 @@ export default function Doctors() {
   }, []);
 
   return (
-    <div ref={parentdiv} className="h-screen relative bg-[#fafafa] py-8">
+    <div ref={parentdiv} className="h-screen  bg-[#fafafa] py-8">
       <div
         className={`w-full h-full bg-blueish flex flex-col py-8   overflow-hidden`}
       >
         <div className="w-full  h-1/6 bg-blueish/70 relative flex justify-center items-center">
           <span className="absolute top-0 text-7xl md:text-9xl font-sans uppercase whitespace-nowrap font-bold text-white/10">
-            <text>EQUIPO MEDICO</text>
+            <h1>EQUIPO MEDICO</h1>
           </span>
           <h1
             className={`text-3xl md:text-6xl font-sans font-semibold uppercase text-center text-white ${

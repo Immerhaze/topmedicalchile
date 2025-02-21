@@ -28,7 +28,7 @@ export default function About() {
   return (
     <div
       ref={aboutRef}
-      className="relative flex flex-col  bg-blueish py-8  h-screen transition-all duration-300"
+      className="flex flex-col  bg-blueish py-8  h-screen transition-all duration-300"
     >
       {/* Left Image */}
       <div
@@ -48,8 +48,8 @@ export default function About() {
       {/* Center Text with Parallax Effect */}
       <div className="w-full h-1/3 lg:h-1/5 bg-white  relative  flex flex-col justify-center items-center lg:justify-center">
         {/* Background Moving Text */}
-        <div class="marquee-text absolute">
-          <div class="marquee-text-track text-[9rem] text-black/5 font-sans uppercase whitespace-nowrap font-bold ">
+        <div className="marquee-text absolute">
+          <div className="marquee-text-track text-[9rem] text-black/5 font-sans uppercase whitespace-nowrap font-bold ">
             <p>Ars Medica, Perfectio Vitae</p>
             <p>Summum Medicinae, Summum Officium </p>
             <p>Ad Culmen Medicinae Perfectionis </p>

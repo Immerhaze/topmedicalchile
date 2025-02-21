@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@midudev/tailwind-animations": "^0.1.0",
+    "@studio-freight/lenis": "^1.0.42",
+    "lenis": "^1.1.20",
     "next": "15.1.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"

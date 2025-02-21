@@ -231,7 +231,7 @@ export default function ProceduresSection() {
   return (
     <section
       ref={parentRef}
-      className="relative h-screen bg-[#FAFAFA] flex flex-col"
+      className=" flex relative h-screen bg-[#FAFAFA]  flex-col"
     >
       {/* Left Arrow */}
       {isLeftArrowVisible && (

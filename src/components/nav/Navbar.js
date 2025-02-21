@@ -99,7 +99,7 @@ export default function Navbar({ setView }) {
             </span>
             <span className="absolute uppercase font-semibold tracking-wide flex flex-row items-center justify-center w-full h-full text-blueish transition-all duration-300 transform lg:group-hover:translate-x-full ease space-x-2">
               <span className="icon-[logos--whatsapp-icon] text-2xl lg:text-3xl "></span>
-              <text className="text-base">Agendar</text>
+              <h2 className="text-base">Agendar</h2>
             </span>
             <span className="relative invisible text-base">Agendar</span>
           </a>
@@ -140,9 +140,9 @@ export default function Navbar({ setView }) {
                 } cursor-pointer font-serif text-left lg:hover:scale-110 transition-all duration-300`}
               >
                 <span className="icon-[tabler--separator] text-blue-500 lg:group-hover:text-blue-500"></span>
-                <text className="text-gray-600 lg:group-hover:text-black">
+                <h2 className="text-gray-600 lg:group-hover:text-black">
                   {btn}
-                </text>
+                </h2>
               </a>
             ))}
           </div>
