@@ -264,14 +264,14 @@ export default function ProceduresSection() {
         <div className=" h-1/5 flex flex-col justify-center py-12 space-y-8  p-4">
           {/* <span className="block border-t-[0.5px] border-black/30 w-2/3 ml-[40vh]"></span> */}
           <h2
-            className={`md:pl-[20vh] text-sm md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-bold  text-blueish font-sans  ${
+            className={`md:pl-[20vh] text-sm md:text-lg lg:text-xl xl:text-2xl  font-bold  text-blueish font-sans  ${
               isVisible ? "animate-fadeInUp" : "opacity-0"
             }`}
           >
             Procedimientos & Tratamientos
           </h2>
           <p
-            className={`md:pl-[20vh] text-base md:text-xl lg:text-2xl xl:text-3xl 2xl:text-5xl font-bold  text-gray-800 font-serif ${
+            className={`md:pl-[20vh] text-base md:text-xl lg:text-2xl xl:text-3xl  font-bold  text-gray-800 font-serif ${
               isVisible ? "animate-fadeInUp" : "opacity-0"
             }`}
           >
@@ -328,10 +328,10 @@ export default function ProceduresSection() {
                     height: "100%", // Keep within image
                   }}
                 >
-                  <h2 className="text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-bold font-sans">
+                  <h2 className="text-lg lg:text-xl xl:text-2xl  font-bold font-sans">
                     {procedure.name}
                   </h2>
-                  <p className="text-sm md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-medium font-serif">
+                  <p className="text-sm md:text-lg lg:text-xl xl:text-2xl  font-medium font-serif">
                     {procedure.description}
                   </p>
                   <button
@@ -339,7 +339,7 @@ export default function ProceduresSection() {
                     className="bg-white group rounded-md text-black flex items-center justify-center transition-all duration-500 p-2 w-[80%] max-w-[250px]"
                   >
                     <span className="icon-[line-md--plus-circle] block group-hover:text-blueish transition-all duration-300 text-lg md:text-2xl mr-2"></span>
-                    <h3 className="text-sm md:text-lg 2xl:text-2xl font-sans font-semibold">
+                    <h3 className="text-sm md:text-lg  font-sans font-semibold">
                       Más Información
                     </h3>
                   </button>
@@ -368,39 +368,39 @@ export default function ProceduresSection() {
                     <span className="absolute md:top-[15%] md:left-[5%] lg:top-[10%]  text-9xl lg:text-9xl font-sans uppercase whitespace-nowrap font-bold text-white/10">
                       {procedure.name}
                     </span>
-                    <h1 className="text-4xl md:text-7xl lg:text-5xl 2xl:text-8xl  font-sans font-semibold uppercase text-center text-white">
+                    <h1 className="text-4xl md:text-7xl lg:text-5xl   font-sans font-semibold uppercase text-center text-white">
                       {procedure.name}
                     </h1>
                   </div>
-                  <div className="w-full h-1/5  px-8  text-base md:text-xl lg:text-lg xl:text-2xl 2xl:text-3xl   text-white font-serif bg-blueish relative flex justify-center items-center p-8">
+                  <div className="w-full h-1/5  px-8  text-base md:text-xl lg:text-lg xl:text-2xl   text-white font-serif bg-blueish relative flex justify-center items-center p-8">
                     {procedure.details}
                   </div>
                   <div className="w-full h-1/5 lg:px-8 bg-blueish text-white space-x-4 relative flex flex-row justify-start items-center p-8">
                     <span className="icon-[solar--clock-circle-broken]  text-5xl lg:text-5xl"></span>{" "}
-                    <span className="font-bold font-sans text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl  ">
+                    <span className="font-bold font-sans text-xl md:text-2xl lg:text-3xl xl:text-4xl   ">
                       Duración:
                     </span>
-                    <p className="font-serif text-lg lg:text-lg xl:text-2xl 2xl:text-4xl">
+                    <p className="font-serif text-lg lg:text-lg xl:text-2xl ">
                       {procedure.duration} aprox.
                     </p>
                   </div>
 
                   <div className="w-full h-1/5 lg:px-8 text-white bg-blueish space-x-4 relative flex flex-row justify-start items-center p-8">
                     <span className="icon-[solar--money-bag-broken] text-5xl lg:text-5xl"></span>
-                    <span className="font-bold text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl  font-sans">
+                    <span className="font-bold text-xl md:text-2xl lg:text-3xl xl:text-4xl   font-sans">
                       Precio:{" "}
                     </span>
-                    <p className="text-lg lg:text-lg  xl:text-2xl 2xl:text-4xl font-serif">
+                    <p className="text-lg lg:text-lg  xl:text-2xl  font-serif">
                       desde {procedure.price}
                     </p>
                   </div>
                   <div className="w-full h-1/5 lg:px-8 text-white bg-blueish space-x-4 relative flex justify-center items-center p-8">
                     <button className="w-full flex flex-row justify-center group/arrow items-center transition-all duration-500">
-                      <h3 className="font-serif font-normal text-xl md:text-2xl lg:text-xl xl:text-2xl 2xl:text-4xl underline cursor-pointer ">
+                      <h3 className="font-serif font-normal text-xl md:text-2xl lg:text-xl xl:text-2xl  underline cursor-pointer ">
                         Ver procedimiento
                       </h3>
                       <span
-                        className="icon-[solar--arrow-right-broken] hidden lg:block  group-hover/arrow:translate-x-10 transition-all duration-300 text-4xl xl:text-6xl 2xl:text-7xl tracking-wider
+                        className="icon-[solar--arrow-right-broken] hidden lg:block  group-hover/arrow:translate-x-10 transition-all duration-300 text-4xl xl:text-6xl  tracking-wider
                        ml-2"
                       ></span>
                     </button>

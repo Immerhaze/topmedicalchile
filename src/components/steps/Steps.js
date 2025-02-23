@@ -128,7 +128,7 @@ export default function Steps() {
             </span>
             <span className="w-full h-1/2  flex justify-end  items-end mb-24">
               <span
-                className={`text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-light ${
+                className={`text-lg lg:text-xl xl:text-2xl  font-light ${
                   isAnimating ? "animate-fade-in-up" : ""
                 }`}
               >

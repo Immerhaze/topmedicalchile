@@ -73,13 +73,13 @@ export default function Doctors() {
 
             {/* Overlay with Doctor Info */}
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60 flex flex-col justify-end space-y-8 p-4 md:p-8 text-white transition-opacity">
-              <h2 className="text-xl md:text-3xl lg:text-4xl xl:text-7xl 2xl:text-8xl font-bold">
+              <h2 className="text-xl md:text-3xl lg:text-4xl xl:text-7xl  font-bold">
                 {doc.name}
               </h2>
-              <h3 className="text-lg md:text-2xl lg:text-4xl  xl:text-6xl 2xl:text-7xl">
+              <h3 className="text-lg md:text-2xl lg:text-4xl  xl:text-6xl ">
                 {doc.specialization}
               </h3>
-              <p className="hidden md:block text-lg md:text-xl   xl:text-2xl 2xl:text-4xl  italic">
+              <p className="hidden md:block text-lg md:text-xl   xl:text-2xl   italic">
                 "{doc.message}"
               </p>
               <div className="mt-4">
@@ -87,7 +87,7 @@ export default function Doctors() {
                   href="#_"
                   className="relative inline-flex items-center px-4 py-2 md:px-6 md:py-3 font-bold text-white bg-blueish/80 hover:bg-white hover:text-black border-2 border-white rounded-lg transition-all"
                 >
-                  <span className="text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl">
+                  <span className="text-lg md:text-xl lg:text-2xl xl:text-3xl ">
                     Más info
                   </span>
                 </a>

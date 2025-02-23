@@ -65,10 +65,10 @@ export default function About() {
           </div>
         </div>
 
-        <h1 className=" text-3xl md:text-3xl lg:text-4xl xl:text-6xl 2xl:text-8xl text-center  font-semibold text-blueish mb-4 font-serif">
+        <h1 className=" text-3xl md:text-3xl lg:text-4xl xl:text-6xl  text-center  font-semibold text-blueish mb-4 font-serif">
           Excelencia en procedimientos estéticos
         </h1>
-        <p className="hidden md:flex md:text-lg lg:text-xl xl:text-2xl 2xl:text-4xl lg:px-12 text-center font-sem text-blueish leading-relaxed font-sans">
+        <p className="hidden md:flex md:text-lg lg:text-xl xl:text-2xl  lg:px-12 text-center font-sem text-blueish leading-relaxed font-sans">
           Nos enfocamos en ti, ofreciéndote soluciones estéticas seguras y
           personalizadas, con un equipo de expertos que siempre está al día con
           los últimos avances.
