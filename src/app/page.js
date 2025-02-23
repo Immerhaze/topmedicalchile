@@ -12,16 +12,16 @@ import Steps from "@/components/steps/Steps";
 
 export default function Home() {
   return (
-    <div className="h-auto w-full ">
+    <div className="h-auto w-full bg-[#fafafa] ">
       <AnimationLoader />
       <Navbar />
       <Inicio />
       <About />
       <Procedures />
-      <Steps />
       <Doctors />
-      {/* <Contact /> */}
-      {/* <Footer /> */}
+      <Steps />
+      <Contact />
+      <Footer />
     </div>
   );
 }

@@ -36,7 +36,7 @@ export default function Steps() {
       });
 
       // Scroll-based rotation logic
-      setRotation(scrollY * 360); // Rotate from 0 to 360 based on scroll progress
+      setRotation(scrollY / 10); // Rotate based on scroll progress
 
       // Get all text sections
       const textDivs = document.querySelectorAll(".text-section");
@@ -80,62 +80,77 @@ export default function Steps() {
 
   const textContent = [
     {
+      img: "/steps/step1.png",
       title: "Evaluación",
       number: "01",
       content:
         "Todo comienza con una consulta personalizada donde resolvemos tus dudas y diseñamos el mejor plan para ti. Nuestro equipo te guía en cada detalle, asegurando seguridad y confianza desde el primer momento.",
     },
     {
+      img: "/steps/step2.png",
       title: "Preparación",
       number: "02",
       content:
         "Te preparamos para que llegues en óptimas condiciones a tu procedimiento. Desde exámenes hasta recomendaciones clave, todo está diseñado para que vivas una experiencia segura y sin preocupaciones.",
     },
     {
+      img: "/steps/step3.png",
       title: "Procedimiento",
       number: "03",
       content:
         "Tu belleza está en manos expertas. Con tecnología avanzada y técnicas de alta precisión, garantizamos resultados naturales y armónicos. Seguridad, profesionalismo y excelencia en cada detalle.",
     },
     {
+      img: "/steps/step4.png",
       title: "Posoperatorio",
       number: "04",
       content:
-        "Aquí está nuestra mayor diferencia: no solo operamos, te acompañamos en todo el proceso de recuperación. Controles médicos, terapias postoperatorias y atención constante para que tu evolución sea rápida, segura y con los mejores resultados. ¡Nos aseguramos de que ames tu cambio y disfrutes cada paso del proceso!",
+        "Aquí está nuestra mayor diferencia. no solo operamos, te acompañamos en todo el proceso de recuperación. Controles médicos, terapias postoperatorias y atención constante para que tu evolución sea rápida, segura y con los mejores resultados. ¡Nos aseguramos de que ames tu cambio y disfrutes cada paso del proceso!",
     },
   ];
 
   return (
     <div className="w-full h-auto flex flex-row bg-blueish">
-      <div className="w-1/2 h-auto relative">
-        <div className="sticky top-0 left-0 w-full h-screen text-white z-10 flex text-center p-12">
-          <p className="font-semibold px-[10%] flex flex-col justify-start items-center">
-            <span className="text-2xl font-bold my-20">
-              {textContent[activeText].number}
+      <div className="w-full md:w-1/2 h-auto relative">
+        <div className="hidden md:block sticky top-0 left-0 w-full h-screen text-white z-10  tracking-wide text-center p-12">
+          <div className="h-full font-semibold lg:px-[10%] flex flex-col justify-start items-center">
+            <span className="w-full h-1/2 space-y-24 flex flex-col justify-center items-center">
+              <span className="text-4xl xl:text-5xl font-bold ">
+                {textContent[activeText].number}
+              </span>
+              <span
+                className={`text-5xl xl:text-7xl  ${
+                  isAnimating ? "animate-fade-in-up" : ""
+                }`}
+              >
+                {textContent[activeText].title}
+              </span>
             </span>
-            <span
-              className={`mb-96 text-5xl ${
-                isAnimating ? "animate-fade-in-up" : ""
-              }`}
-            >
-              {textContent[activeText].title}
+            <span className="w-full h-1/2  flex justify-end  items-end mb-24">
+              <span
+                className={`text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-light ${
+                  isAnimating ? "animate-fade-in-up" : ""
+                }`}
+              >
+                {textContent[activeText].content}
+              </span>
             </span>
-            <br />
-            <span
-              className={`text-lg font-light ${
-                isAnimating ? "animate-fade-in-up" : ""
-              }`}
-            >
-              {textContent[activeText].content}
-            </span>
-          </p>
+          </div>
         </div>
         <div className="relative z-0">
-          {textContent.map((_, index) => (
+          {textContent.map((content, index) => (
             <div
               key={index}
-              className="w-full h-screen flex flex-col justify-center items-center p-[20%] text-section"
-            ></div>
+              className="w-full h-screen flex flex-col justify-center text-left text-section"
+            >
+              <p className="md:hidden font-semibold p-8 h-full flex flex-col bg-blueish space-y-4 text-white  ">
+                <span className="text-2xl font-bold ">{content.number}</span>
+                <span className={`text-5xl`}>{content.title}</span>
+                <br />
+                <span className={`text-lg font-light`}>{content.content}</span>
+              </p>
+              <img className="md:hidden mb-8" src={content.img} />
+            </div>
           ))}
         </div>
       </div>
@@ -143,7 +158,7 @@ export default function Steps() {
       {/* Image Container */}
       <div
         ref={containerRef}
-        className="containerimg w-1/2 h-screen sticky top-0 bg-blueish"
+        className="hidden md:block containerimg w-1/2 h-screen sticky top-0 bg-blueish"
         style={{
           transform: `translateY(${topValue}%)`,
         }}
@@ -152,7 +167,7 @@ export default function Steps() {
           className="w-1/6 absolute left-[-8.5%] z-30 flex justify-center items-center"
           style={{
             top: "50%",
-            transform: `translateY(-50%) rotate(${scrollY / 10}deg)`, // Rotates in one direction
+            transform: `translateY(-50%) rotate(${rotation}deg)`, // Adjusted to use scroll-based rotation
           }}
         >
           <img src="/steps/topmedical.svg" className="bg-cover" />
@@ -161,7 +176,7 @@ export default function Steps() {
           className="w-1/6 absolute left-[-8.5%] z-30 flex justify-center items-center"
           style={{
             top: "50%",
-            transform: `translateY(-50%) rotate(${-scrollY / 10}deg)`, // Rotates in the opposite direction
+            transform: `translateY(-50%) rotate(${-rotation}deg)`, // Adjusted to use scroll-based rotation
           }}
         >
           <img src="/steps/cruz.svg" className="bg-cover" />
@@ -173,6 +188,7 @@ export default function Steps() {
               className={`absolute bottom-0 w-full object-cover ${
                 index === 0 ? "h-full" : ""
               }`}
+              srcSet={`/steps/${imgSrc} 320w, /steps/medium${imgSrc} 768w`}
               src={`/steps/${imgSrc}`}
               style={
                 index !== 0

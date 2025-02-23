@@ -32,7 +32,7 @@ export default function About() {
     >
       {/* Left Image */}
       <div
-        className="w-full h-1/3 lg:h-2/5 flex justify-start items-start  md:items-center"
+        className="w-full h-2/5 lg:h-2/5 flex justify-start items-start  md:items-center"
         style={{
           transform: `translateY(${offsetY}px)`,
           transition: "transform 0.3s ease-out",
@@ -46,7 +46,7 @@ export default function About() {
       </div>
 
       {/* Center Text with Parallax Effect */}
-      <div className="w-full h-1/3 lg:h-1/5 bg-white  relative  flex flex-col justify-center items-center lg:justify-center">
+      <div className="w-full h-1/5 lg:h-1/5 bg-[#fafafa]  relative  flex flex-col justify-center items-center lg:justify-center px-8 lg:px-16">
         {/* Background Moving Text */}
         <div className="marquee-text absolute">
           <div className="marquee-text-track text-[9rem] text-black/5 font-sans uppercase whitespace-nowrap font-bold ">
@@ -65,10 +65,10 @@ export default function About() {
           </div>
         </div>
 
-        <h1 className=" text-3xl md:text-3xl lg:text-4xl text-center  font-semibold text-blueish mb-4 font-serif">
+        <h1 className=" text-3xl md:text-3xl lg:text-4xl xl:text-6xl 2xl:text-8xl text-center  font-semibold text-blueish mb-4 font-serif">
           Excelencia en procedimientos estéticos
         </h1>
-        <p className="hidden md:flex md:text-lg lg:text-xl lg:px-12 text-center font-sem text-blueish leading-relaxed font-sans">
+        <p className="hidden md:flex md:text-lg lg:text-xl xl:text-2xl 2xl:text-4xl lg:px-12 text-center font-sem text-blueish leading-relaxed font-sans">
           Nos enfocamos en ti, ofreciéndote soluciones estéticas seguras y
           personalizadas, con un equipo de expertos que siempre está al día con
           los últimos avances.
@@ -77,7 +77,7 @@ export default function About() {
 
       {/* Right Image */}
       <div
-        className=" w-full h-1/3 lg:h-2/5 flex justify-end items-end"
+        className=" w-full h-2/5 lg:h-2/5 flex justify-end items-end"
         style={{
           transform: `translateY(${offsetY}px)`,
           transition: "transform 0.3s ease-out",
