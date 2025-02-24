@@ -31,7 +31,7 @@ export default function AnimationLoader() {
     <div
       className={`fixed inset-0 bg-blueish flex items-center justify-center transition-all ${
         animationCompleted ? "translate-y-full" : "opacity-100"
-      } z-50`}
+      } z-[60]`}
       style={{
         transition: "transform 1500ms ease-out, opacity 1s ease-in-out",
         overflow: "hidden",
