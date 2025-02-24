@@ -60,18 +60,8 @@ const procedures = [
     recuperation: "1-2 semanas",
     price: "$350.000 CLP.",
     details:
-      "El Botox es un tratamiento estético que reduce las arrugas y líneas de expresión al relajar los músculos faciales. Es un procedimiento rápido, seguro y sin tiempo de recuperación.",
+      "Reduce las arrugas y líneas de expresión relajando los músculos faciales. Es un procedimiento rápido, seguro.",
   },
-  // {
-  //   name: "Rinomodelación",
-  //   image: "/procedimientos/rinomodelacion.webp",
-  //   description: "Corrige y perfila tu nariz de manera natural.",
-  //   duration: "1-2 horas",
-  //   recuperation: "1 semana",
-  //   price: "$1,500 CLP.",
-  //   details:
-  //     "Este procedimiento no quirúrgico mejora la forma de la nariz mediante rellenos, ideal para quienes buscan cambios sutiles.",
-  // },
   {
     name: "Lifting",
     image: "/procedimientos/lifting.webp",
@@ -137,19 +127,14 @@ export default function ProceduresSection() {
   const handleScroll = (direction) => {
     if (!scrollRef.current) return;
 
-    const cardWidth = scrollRef.current.children[0].offsetWidth;
-    let newIndex = currentIndex;
-
-    if (direction === "left") {
-      newIndex = currentIndex === 0 ? procedures.length - 1 : currentIndex - 1;
-    } else if (direction === "right") {
-      newIndex = currentIndex === procedures.length - 1 ? 0 : currentIndex + 1;
-    }
-
-    setCurrentIndex(newIndex);
+    const screenWidth = window.innerWidth;
+    const newScrollLeft =
+      direction === "left"
+        ? scrollRef.current.scrollLeft - screenWidth
+        : scrollRef.current.scrollLeft + screenWidth;
 
     scrollRef.current.scrollTo({
-      left: newIndex * cardWidth,
+      left: newScrollLeft,
       behavior: "smooth",
     });
   };
@@ -238,6 +223,7 @@ export default function ProceduresSection() {
   return (
     <section
       ref={parentRef}
+      id="procedimientos"
       className=" flex relative h-screen bg-[#FAFAFA]  flex-col"
     >
       {/* Left Arrow */}
@@ -262,16 +248,15 @@ export default function ProceduresSection() {
       {/*full screen cards container*/}
       <div className="h-full w-full flex flex-col">
         <div className=" h-1/5 flex flex-col justify-center py-12 space-y-8  p-4">
-          {/* <span className="block border-t-[0.5px] border-black/30 w-2/3 ml-[40vh]"></span> */}
           <h2
-            className={`md:pl-[20vh] text-sm md:text-lg lg:text-xl xl:text-2xl  font-bold  text-blueish font-sans  ${
+            className={`md:pl-[20vh] text-base md:text-lg lg:text-xl xl:text-2xl  font-bold  text-blueish font-sans  ${
               isVisible ? "animate-fadeInUp" : "opacity-0"
             }`}
           >
             Procedimientos & Tratamientos
           </h2>
           <p
-            className={`md:pl-[20vh] text-base md:text-xl lg:text-2xl xl:text-3xl  font-bold  text-gray-800 font-serif ${
+            className={`md:pl-[20vh] text-xl md:text-2xl lg:text-3xl xl:text-4xl  font-bold  text-gray-800 font-serif ${
               isVisible ? "animate-fadeInUp" : "opacity-0"
             }`}
           >
@@ -306,7 +291,6 @@ export default function ProceduresSection() {
                 } h-full lg:z-10 overflow-hidden`}
               >
                 {/* Image */}
-                {/* <div className="relative w-full h-full"> */}
                 <img
                   src={procedure.image}
                   alt={procedure.name}
@@ -328,10 +312,10 @@ export default function ProceduresSection() {
                     height: "100%", // Keep within image
                   }}
                 >
-                  <h2 className="text-lg lg:text-xl xl:text-2xl  font-bold font-sans">
+                  <h2 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl  font-bold font-sans">
                     {procedure.name}
                   </h2>
-                  <p className="text-sm md:text-lg lg:text-xl xl:text-2xl  font-medium font-serif">
+                  <p className="text-sm md:text-lg xl:text-xl  font-medium font-serif">
                     {procedure.description}
                   </p>
                   <button
@@ -344,7 +328,6 @@ export default function ProceduresSection() {
                     </h3>
                   </button>
                 </div>
-                {/* </div> */}
               </div>
 
               <div
@@ -365,42 +348,45 @@ export default function ProceduresSection() {
                       className="icon-[solar--close-circle-broken]  absolute top-4 right-4 text-4xl font-bold text-white cursor-pointer lg:hover:scale-125 transition-transform duration-300 z-[15]"
                       onClick={() => setVisibleInfoCard(null)}
                     ></span>
-                    <span className="absolute md:top-[15%] md:left-[5%] lg:top-[10%]  text-9xl lg:text-9xl font-sans uppercase whitespace-nowrap font-bold text-white/10">
+                    <span className="absolute md:top-[15%] md:left-[5%] lg:top-[10%]  text-8xl font-sans uppercase whitespace-nowrap font-bold text-white/10">
                       {procedure.name}
                     </span>
-                    <h1 className="text-4xl md:text-7xl lg:text-5xl   font-sans font-semibold uppercase text-center text-white">
+                    <h1 className="text-4xl    font-sans font-semibold uppercase text-center text-white">
                       {procedure.name}
                     </h1>
                   </div>
-                  <div className="w-full h-1/5  px-8  text-base md:text-xl lg:text-lg xl:text-2xl   text-white font-serif bg-blueish relative flex justify-center items-center p-8">
+                  <div className="w-full h-1/5  px-4  text-sm lg:text-base    text-white font-serif bg-blueish relative flex justify-center items-center p-8">
                     {procedure.details}
                   </div>
                   <div className="w-full h-1/5 lg:px-8 bg-blueish text-white space-x-4 relative flex flex-row justify-start items-center p-8">
                     <span className="icon-[solar--clock-circle-broken]  text-5xl lg:text-5xl"></span>{" "}
-                    <span className="font-bold font-sans text-xl md:text-2xl lg:text-3xl xl:text-4xl   ">
+                    <span className="font-bold font-sans text-xl">
                       Duración:
                     </span>
-                    <p className="font-serif text-lg lg:text-lg xl:text-2xl ">
+                    <p className="font-serif text-lg ">
                       {procedure.duration} aprox.
                     </p>
                   </div>
 
                   <div className="w-full h-1/5 lg:px-8 text-white bg-blueish space-x-4 relative flex flex-row justify-start items-center p-8">
                     <span className="icon-[solar--money-bag-broken] text-5xl lg:text-5xl"></span>
-                    <span className="font-bold text-xl md:text-2xl lg:text-3xl xl:text-4xl   font-sans">
+                    <span className="font-bold text-xl font-sans">
                       Precio:{" "}
                     </span>
-                    <p className="text-lg lg:text-lg  xl:text-2xl  font-serif">
+                    <p className="text-lg font-serif">
                       desde {procedure.price}
                     </p>
                   </div>
                   <div className="w-full h-1/5 lg:px-8 text-white bg-blueish space-x-4 relative flex justify-center items-center p-8">
                     <button className="w-full flex flex-row justify-center group/arrow items-center transition-all duration-500">
-                      <h3 className="font-serif font-normal text-xl md:text-2xl lg:text-xl xl:text-2xl  underline cursor-pointer ">
+                      <a
+                        href="/procedimientos"
+                        className="font-serif font-normal text-xl md:text-2xl   underline cursor-pointer "
+                      >
                         Ver procedimiento
-                      </h3>
+                      </a>
                       <span
-                        className="icon-[solar--arrow-right-broken] hidden lg:block  group-hover/arrow:translate-x-10 transition-all duration-300 text-4xl xl:text-6xl  tracking-wider
+                        className="icon-[solar--arrow-right-broken] hidden lg:block  group-hover/arrow:translate-x-10 transition-all duration-300 text-4xl   tracking-wider
                        ml-2"
                       ></span>
                     </button>

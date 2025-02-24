@@ -114,21 +114,21 @@ export default function Steps() {
       <div className="w-full md:w-1/2 h-auto relative">
         <div className="hidden md:block sticky top-0 left-0 w-full h-screen text-white z-10  tracking-wide text-center p-12">
           <div className="h-full font-semibold lg:px-[10%] flex flex-col justify-start items-center">
-            <span className="w-full h-1/2 space-y-24 flex flex-col justify-center items-center">
+            <span className="w-full h-1/2  flex flex-col justify-center items-center">
               <span className="text-4xl xl:text-5xl font-bold ">
                 {textContent[activeText].number}
               </span>
               <span
-                className={`text-5xl xl:text-7xl  ${
+                className={`text-5xl xl:text-6xl mb-10 ${
                   isAnimating ? "animate-fade-in-up" : ""
                 }`}
               >
                 {textContent[activeText].title}
               </span>
             </span>
-            <span className="w-full h-1/2  flex justify-end  items-end mb-24">
+            <span className="w-full h-1/2  flex justify-end  items-end mb-16">
               <span
-                className={`text-lg lg:text-xl xl:text-2xl  font-light ${
+                className={`text-lg font-light ${
                   isAnimating ? "animate-fade-in-up" : ""
                 }`}
               >
@@ -145,9 +145,11 @@ export default function Steps() {
             >
               <p className="md:hidden font-semibold p-8 h-full flex flex-col bg-blueish space-y-4 text-white  ">
                 <span className="text-2xl font-bold ">{content.number}</span>
-                <span className={`text-5xl`}>{content.title}</span>
+                <span className={`text-4xl md:text-5xl`}>{content.title}</span>
                 <br />
-                <span className={`text-lg font-light`}>{content.content}</span>
+                <span className={`text-lg md:text-xl font-light`}>
+                  {content.content}
+                </span>
               </p>
               <img className="md:hidden mb-8" src={content.img} />
             </div>
