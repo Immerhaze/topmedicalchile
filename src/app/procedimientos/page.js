@@ -158,10 +158,10 @@ export default function ProceduresPage() {
               {filteredProcedures.map((procedure, index) => (
                 <li
                   key={index}
-                  className={`p-2 m-2 border-b-2  min-w-40 lg:w-full sm:bg-blueish/60 lg:bg-white  text-white lg:text-black  border-gray-200  text-base  font-semibold tracking-widest font-sans ${
+                  className={`p-2 m-2 border-b-2  min-w-40 lg:w-full sm:bg-blueish/60  text-white lg:text-black  border-gray-200  text-base  font-semibold tracking-widest font-sans ${
                     selectedProcedure === procedure
                       ? "shadow-sm lg:bg-blueish lg:text-white "
-                      : ""
+                      : "lg:bg-white"
                   } rounded cursor-pointer lg:hover:bg-blueish/60 hover:text-white  transition-all duration-300 animate-fade-in-right animate-duration-300`}
                   style={{ animationDelay: `${index * 100}ms` }}
                   onClick={() => handleProcedureClick(procedure)}
