@@ -26,23 +26,23 @@ export default function Contact() {
   return (
     <section
       id="contacto"
-      className="h-screen w-full flex items-end justify-center relative py-40 my-16"
+      className="h-screen w-full flex items-end justify-center relative "
     >
       {/* Background Image */}
       <div
-        className="absolute top-0 left-0 w-full h-full bg-cover bg-center   "
+        className="absolute top-0 left-0 w-full h-full bg-cover bg-bottom"
         style={{ backgroundImage: "url('/santiago2.png')" }}
       ></div>
 
       {/* Overlay Container */}
-      <div className="relative w-full h-full  bg-[url('/santiago2.png')]  bg-no-repeat bg-cover   shadow-lg flex flex-col lg:flex-row justify-evenly items-center p-4 md:p-8 overflow-hidden">
-        <div className="w-full h-full block bg-white/90 absolute top-0"></div>
+      <div className="relative w-full h-full  bg-[url('/santiago2.png')]  bg-no-repeat bg-cover   shadow-lg flex flex-col lg:flex-row justify-evenly items-center p-4 md:p-8 overflow-hidden py-8">
+        <div className="w-full h-full block bg-white/80 absolute top-0"></div>
 
-        <div className="w-full h-1/2 flex flex-col justify-center items-start space-y-8 lg:px-16 z-10">
-          <h1 className="text-4xl md:text-5xl font-sans font-bold text-blueish">
+        <div className="w-full h-1/2 flex flex-col justify-center items-start space-y-4 lg:px-16 z-10">
+          <h1 className="text-3xl md:text-5xl font-sans font-bold text-blueish">
             ¡Comunícate con nosotros!
           </h1>
-          <p className="text-sm md:text-xl  font-serif font-light leading-relaxed tracking-wide">
+          <p className=" text-black text-sm md:text-xl  font-serif font-light leading-relaxed tracking-wide">
             ¿Tienes una pregunta o necesitas asistencia? Nuestro equipo en
             TopMedical Chile está aquí para ayudarte. Escríbenos un email o por
             WhatsApp, ¡te esperamos!
@@ -71,7 +71,7 @@ export default function Contact() {
           </div>
 
           {/* Social Media Icons */}
-          <div className="mt-6 flex space-x-4">
+          <div className="mt-4 flex space-x-4">
             {Socials.map((social, index) => (
               <a
                 key={index}

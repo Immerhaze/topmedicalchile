@@ -48,8 +48,8 @@ export default function Doctors() {
       className="min-h-screen w-full flex flex-col bg-[#fafafa] my-8"
     >
       {/* Title Section (1/6 height) */}
-      <div className="h-1/6 flex justify-center items-center relative p-4">
-        <h1 className="absolute -top-5 text-6xl text-nowrap font-bold uppercase text-blueish/10">
+      <div className="w-full h-1/6 flex justify-center items-center relative p-4">
+        <h1 className="w-full absolute -top-10 text-6xl  font-bold uppercase text-nowrap text-blueish/10">
           EQUIPO MEDICO
         </h1>
         <h1

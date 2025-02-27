@@ -23,7 +23,7 @@ export default function About() {
   return (
     <div
       ref={aboutRef}
-      className="flex flex-col bg-blueish py-8 h-screen transition-all duration-300"
+      className="flex flex-col bg-blueish py-8 h-screen w-screen overflow-x-hidden transition-all duration-300"
     >
       {/* Left Image */}
       <div
@@ -41,7 +41,7 @@ export default function About() {
       </div>
 
       {/* Center Text with Parallax Effect */}
-      <div className="w-full h-auto bg-[#fafafa] relative flex flex-col justify-center items-center lg:justify-center p-4 lg:px-16">
+      <div className="w-full h-1/5 bg-[#fafafa] relative flex flex-col justify-center items-center lg:justify-center p-4 lg:px-16">
         {/* Background Moving Text */}
         <div className="marquee-text absolute">
           <div className="marquee-text-track text-[7rem] md:text-[8rem] lg:text-[9rem] text-black/5 font-sans uppercase whitespace-nowrap font-bold">

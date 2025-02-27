@@ -1,10 +1,9 @@
 "use client"; // For client-side interactivity
 
+import { Neonderthaw } from "next/font/google";
 import React, { useState, useEffect } from "react";
 
 export default function Navbar({ fixed }) {
-  const [isVisible, setIsVisible] = useState(true);
-  const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -18,22 +17,11 @@ export default function Navbar({ fixed }) {
       } else {
         setScrolled(false);
       }
-
-      if (currentScrollPos > prevScrollPos) {
-        // Scrolling down, hide the navbar
-        setIsVisible(false);
-      } else {
-        // Scrolling up, show the navbar
-        setIsVisible(true);
-      }
-
-      // Update the previous scroll position
-      setPrevScrollPos(currentScrollPos);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [prevScrollPos]);
+  }, [scrolled]);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "auto";
@@ -49,21 +37,25 @@ export default function Navbar({ fixed }) {
   return (
     <header
       className={`w-full h-[10%] fixed top-0 z-50 flex flex-row ${
-        scrolled ? "lg:bg-white lg:shadow-lg" : "bg-none"
-      } transition-all duration-300 ${
-        isVisible ? "opacity-100" : "opacity-0"
-      } ${fixed && "lg:justify-end "} `}
+        fixed
+          ? "bg-white"
+          : !fixed && scrolled
+          ? "bg-white transition-all duration-200"
+          : "bg-none"
+      } `}
     >
       {/* Logo */}
       <div
-        className={`w-1/2 lg:w-1/3 h-full flex justify-start lg:justify-center items-center p-4 ${
-          fixed && "hidden"
-        } `}
+        className={`w-1/2 lg:w-1/3 h-full flex justify-start lg:justify-center items-center p-4`}
       >
         <span
           className={`font-semibold ${
-            scrolled ? "text-blueish" : "text-white"
-          } tracking-wider text-3xl md:text-4xl  uppercase`}
+            fixed
+              ? "text-blueish"
+              : !fixed && scrolled
+              ? "text-blueish"
+              : "text-white"
+          } tracking-wider text-2xl md:text-3xl  uppercase`}
         >
           TopMedical
         </span>
@@ -114,19 +106,21 @@ export default function Navbar({ fixed }) {
             menuOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
-          <div className="h-1/6 w-full flex flex-col justify-center items-center relative">
+          <div className="h-2/6 w-full flex flex-col justify-start items-center relative">
             <span
-              className="absolute top-4 right-4 cursor-pointer"
+              className="w-full h-auto relative flex justify-end p-4"
               onClick={() => setMenuOpen(false)}
             >
               <span className="icon-[solar--close-circle-broken] text-blueish text-3xl"></span>
             </span>
-            <h1 className="text-blueish text-3xl md:text-4xl font-bold">
-              TOPMEDICAL
-            </h1>
-            <h2 className="text-blueish text-xl md:text-2xl font-semibold">
-              Chile
-            </h2>
+            <span className="w-full h-full flex flex-col justify-center items-center">
+              <h1 className="text-blueish text-3xl md:text-4xl font-bold">
+                TOPMEDICAL
+              </h1>
+              <h2 className="text-blueish text-xl md:text-2xl font-semibold">
+                Chile
+              </h2>
+            </span>
           </div>
           <ul className="h-5/6 w-full flex flex-col justify-center items-start space-y-8 p-8">
             {navbuttons.map((button, index) => (

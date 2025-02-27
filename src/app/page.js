@@ -12,9 +12,9 @@ import Steps from "@/components/steps/Steps";
 
 export default function Home() {
   return (
-    <div className="h-auto w-full bg-[#fafafa]">
+    <div className="h-auto w-screen bg-[#fafafa]">
       <AnimationLoader />
-      <Navbar />
+      <Navbar fixed={false} />
       <Inicio />
       <About />
       <Procedures />
