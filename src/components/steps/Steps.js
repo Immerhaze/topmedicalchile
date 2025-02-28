@@ -110,7 +110,7 @@ export default function Steps() {
   ];
 
   return (
-    <div className="w-full h-auto  flex flex-row bg-blueish">
+    <div id="proceso" className="w-full h-auto  flex flex-row bg-blueish">
       <div className="w-full md:w-1/2 h-auto relative">
         <div className="hidden md:block sticky top-0 left-0 w-full h-screen text-white z-10  tracking-wide text-center p-12">
           <div className="h-full font-semibold lg:px-[10%] flex flex-col justify-start items-center">

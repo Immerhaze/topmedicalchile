@@ -131,7 +131,7 @@ export default function ProceduresPage() {
         <Navbar fixed={true} />
         <div className="w-full h-full flex flex-col lg:flex-row ">
           {/* Left Side: Procedure List */}
-          <div className="overflow-hidden w-full h-1/2 lg:w-1/4 lg:h-full p-6 bg-white shadow-lg border-r pt-16">
+          <div className="overflow-hidden   w-full h-1/2 lg:w-1/4 lg:h-full p-6 bg-white shadow-lg border-r pt-20">
             <div className="relative bg-blueish  rounded-md w-full h-16 flex flex-row p-2 my-4 border-[1px] justify-center items-center">
               <span className="icon-[stash--search-box] text-6xl m-2 text-white"></span>
               <input
@@ -200,7 +200,7 @@ export default function ProceduresPage() {
                     {selectedProcedure.details}
                   </p>
                   <div className="mb-6 flex flex-col space-y-8 text-center animate-fade-in-down animate-duration-300 animate-delay-700">
-                    <p className="text-gray-600 ">
+                    {/* <p className="text-gray-600 ">
                       <strong className="text-blueish font-serif tracking-wider font-black">
                         Precio:
                       </strong>{" "}
@@ -211,10 +211,11 @@ export default function ProceduresPage() {
                         Duración:
                       </strong>{" "}
                       {selectedProcedure.duration} (aproximada)
-                    </p>
+                    </p> */}
                     <div ref={textreference} className="mt-">
                       <a
                         href="https://wa.me/56967004543"
+                        target="_blank"
                         class="relative inline-flex items-center shadow-blueish shadow-sm justify-start px-6 py-3 overflow-hidden font-medium transition-all bg-white border-2 border-blueish rounded hover:bg-white group"
                       >
                         <span class="w-48 h-48 rounded rotate-[-40deg] bg-blueish absolute bottom-0 left-0 -translate-x-full ease-out duration-500 transition-all translate-y-full mb-9 ml-9 group-hover:ml-0 group-hover:mb-32 group-hover:translate-x-0"></span>

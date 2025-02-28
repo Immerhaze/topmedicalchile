@@ -46,11 +46,12 @@ export default function Navbar({ fixed }) {
           fixed ? "lg:w-1/4" : "w-1/2 lg:w-1/3"
         } h-full flex justify-start lg:justify-center items-center p-4`}
       >
-        <span
-          className={`font-semibold text-blueish tracking-wider text-2xl md:text-3xl  uppercase`}
+        <a
+          href="/"
+          className={`font-semibold text-blueish tracking-wider text-2xl md:text-3xl  uppercase select-none cursor-pointer`}
         >
           TopMedical
-        </span>
+        </a>
       </div>
 
       <div
@@ -64,6 +65,9 @@ export default function Navbar({ fixed }) {
           </li>
           <li className=" m-4 hover:scale-110 transition-all duration-300 cursor-pointer font-medium font-sans">
             <a href="#medicos">Equipo</a>
+          </li>
+          <li className=" m-4 hover:scale-110 transition-all duration-300 cursor-pointer font-medium font-sans">
+            <a href="#proceso">Proceso</a>
           </li>
           <li className=" m-4 hover:scale-110 transition-all duration-300 cursor-pointer font-medium font-sans">
             <a href="#contacto">Contacto</a>
