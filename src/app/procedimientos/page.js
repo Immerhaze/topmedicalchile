@@ -122,8 +122,9 @@ export default function ProceduresPage() {
       behavior: "smooth",
       block: "center", // Scroll it to the center of the viewport
     });
-  }, [selectedProcedure]);
+  }, [selectedProcedure.name]);
 
+  console.log("SELECTEDPROCEDURE:", selectedProcedure);
   return (
     <>
       <div className="h-auto lg:h-screen w-full flex flex-col ">
@@ -131,7 +132,7 @@ export default function ProceduresPage() {
         <div className="w-full h-full flex flex-col lg:flex-row ">
           {/* Left Side: Procedure List */}
           <div className="overflow-hidden w-full h-1/2 lg:w-1/4 lg:h-full p-6 bg-white shadow-lg border-r pt-16">
-            <div className="relative bg-blueish rounded-md w-full h-16 flex flex-row p-2 my-4 border-[1px] justify-center items-center">
+            <div className="relative bg-blueish  rounded-md w-full h-16 flex flex-row p-2 my-4 border-[1px] justify-center items-center">
               <span className="icon-[stash--search-box] text-6xl m-2 text-white"></span>
               <input
                 type="text"
@@ -154,8 +155,11 @@ export default function ProceduresPage() {
               {filteredProcedures.map((procedure, index) => (
                 <li
                   key={index}
-                  className={`min-w-40 p-2 rounded-lg bg-blueish/80 mx-4 text-white`}
-                  style={{ animationDelay: `${index * 100}ms` }}
+                  className={`min-w-40 p-2 my-4 rounded-lg lg:border-b hover:bg-gray-300 mx-4 cursor-pointer ${
+                    procedure.name === selectedProcedure.name
+                      ? "bg-blueish text-white"
+                      : "bg-blueish/80 lg:bg-white text-black"
+                  }`}
                   onClick={() => handleProcedureClick(procedure)}
                 >
                   {procedure.name}
@@ -165,7 +169,7 @@ export default function ProceduresPage() {
           </div>
 
           {/* Right Side: Procedure Details */}
-          <div className=" w-full h-1/2 lg:w-3/4 lg:h-full  shadow-lg overflow-hidden bg-[#fafafa]">
+          <div className=" w-full h-1/2 lg:w-3/4 lg:h-full lg:pt-20 shadow-lg overflow-hidden bg-white">
             <div className="h-1/6 flex justify-center items-center relative">
               <h1 className="absolute top-[15%] text-5xl   text-nowrap font-bold uppercase text-blueish/10">
                 {selectedProcedure?.name}

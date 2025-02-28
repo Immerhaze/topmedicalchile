@@ -37,37 +37,27 @@ export default function Navbar({ fixed }) {
   return (
     <header
       className={`w-full h-[10%] fixed top-0 z-50 flex flex-row ${
-        fixed
-          ? "bg-white"
-          : !fixed && scrolled
-          ? "bg-white transition-all duration-200"
-          : "bg-none"
-      } `}
+        fixed && "justify-between bg-white"
+      } bg-white border-b-2 `}
     >
       {/* Logo */}
       <div
-        className={`w-1/2 lg:w-1/3 h-full flex justify-start lg:justify-center items-center p-4`}
+        className={` ${
+          fixed ? "lg:w-1/4" : "w-1/2 lg:w-1/3"
+        } h-full flex justify-start lg:justify-center items-center p-4`}
       >
         <span
-          className={`font-semibold ${
-            fixed
-              ? "text-blueish"
-              : !fixed && scrolled
-              ? "text-blueish"
-              : "text-white"
-          } tracking-wider text-2xl md:text-3xl  uppercase`}
+          className={`font-semibold text-blueish tracking-wider text-2xl md:text-3xl  uppercase`}
         >
           TopMedical
         </span>
       </div>
 
       <div
-        className={`hidden lg:block lg:w-1/3 h-full ${fixed && "lg:hidden"}`}
+        className={`hidden lg:block ${fixed && "lg:hidden"} lg:w-1/3 h-full `}
       >
         <ul
-          className={`w-full h-full flex flex-row justify-center items-center  text-lg md:text-xl   ${
-            scrolled ? "text-blueish" : "text-white"
-          } tracking-wider`}
+          className={`w-full h-full flex flex-row justify-center items-center  text-lg md:text-xl  tracking-wider`}
         >
           <li className=" m-4 hover:scale-110 transition-all duration-300 cursor-pointer font-medium font-sans">
             <a href="#procedimientos">Procedimientos</a>
@@ -82,11 +72,7 @@ export default function Navbar({ fixed }) {
       </div>
 
       {/* Menu Button */}
-      <div
-        className={`w-1/2 lg:w-1/3 flex justify-end  ${
-          fixed ? "w-full lg:justify-end" : "lg:justify-center"
-        } items-center p-4`}
-      >
+      <div className={`w-1/2 lg:w-1/3 flex justify-end   items-center p-4`}>
         <div
           className={` m-4 bg-blueish p-2 rounded-full flex justify-center items-center cursor-pointer`}
           onClick={() => setMenuOpen(!menuOpen)}
@@ -97,7 +83,7 @@ export default function Navbar({ fixed }) {
 
       {/* Hidden Menu */}
       <div
-        className={`hidden_menu fixed inset-0 bg-blueish/40 flex justify-end transition-all duration-300 ${
+        className={`hidden_menu fixed inset-0 bg-blueish/40 backdrop-blur-lg flex justify-end transition-all duration-300 ${
           menuOpen ? "opacity-100  delay-300" : "opacity-0 pointer-events-none"
         }`}
       >

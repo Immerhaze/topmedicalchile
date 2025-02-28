@@ -49,7 +49,7 @@ export default function Doctors() {
     >
       {/* Title Section (1/6 height) */}
       <div className="w-full h-1/6 flex justify-center items-center relative p-4">
-        <h1 className="w-full absolute -top-10 text-6xl  font-bold uppercase text-nowrap text-blueish/10">
+        <h1 className="w-full absolute -top-5 text-6xl text-center  font-bold uppercase text-nowrap text-blueish/10">
           EQUIPO MEDICO
         </h1>
         <h1

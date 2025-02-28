@@ -370,7 +370,7 @@ export default function ProceduresSection() {
                       >
                         Ver procedimiento
                       </a>
-                      <span className="icon-[solar--arrow-right-broken] hidden lg:block group-hover/arrow:translate-x-10 transition-all duration-300 text-4xl tracking-wider ml-2"></span>
+                      <span className="icon-[solar--arrow-right-broken] hidden lg:block group-hover/arrow:translate-x-4 transition-all duration-300 text-4xl tracking-wider ml-2"></span>
                     </button>
                   </div>
                 </div>
