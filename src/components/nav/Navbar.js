@@ -30,7 +30,7 @@ export default function Navbar({ fixed }) {
   const navbuttons = [
     { title: "Sobre Nosotros", href: "/" },
     { title: "Procedimientos", href: "/procedimientos" },
-    { title: "Equipo Médico", href: "/medicos" },
+    { title: "Equipo Médico", href: "#medicos" },
     { title: "Contacto", href: "#contacto" },
   ];
 

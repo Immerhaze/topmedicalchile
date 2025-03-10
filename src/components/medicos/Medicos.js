@@ -73,7 +73,7 @@ export default function Doctors() {
             />
 
             {/* Overlay with Doctor Info */}
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60 flex flex-col justify-end  space-y-4 p-4 md:p-8 text-white transition-opacity">
+            {/* <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60 flex flex-col justify-end  space-y-4 p-4 md:p-8 text-white transition-opacity">
               <h2 className="text-xl md:text-3xl   font-bold">{doc.name}</h2>
               <h3 className="text-lg md:text-2xl  ">{doc.specialization}</h3>
               <p className="hidden md:block text-lg md:text-xl italic">
@@ -89,7 +89,7 @@ export default function Doctors() {
                   </span>
                 </a>
               </div>
-            </div>
+            </div> */}
           </div>
         ))}
       </div>
