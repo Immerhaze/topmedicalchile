@@ -11,16 +11,16 @@ const doctors = [
     message:
       "Mi misión es ayudarte a sentirte bien contigo mismo, porque cuando te cuidas, tu confianza crece.",
   },
-  {
-    id: 1,
-    name: "Dr. Juan Carlos Ramirez",
-    image: "/drs/dr1.png",
-    specialization: "Cirujano Plástico",
-    info: "El Dr. Juan Pérez es un destacado cirujano plástico, especializado en procedimientos estéticos faciales y corporales. Es profesor y miembro activo de la Sociedad de Cirugía Estética de Colombia, lo que refleja su compromiso con la formación continua y su liderazgo en el ámbito de la cirugía estética.",
-    yearsExperience: 10,
-    message:
-      "Creo que todos merecen sentirse bien con quienes son. Estoy aquí para ayudarte a resaltar lo mejor de ti.",
-  },
+  // {
+  //   id: 1,
+  //   name: "Dr. Juan Carlos Ramirez",
+  //   image: "/drs/dr1.png",
+  //   specialization: "Cirujano Plástico",
+  //   info: "El Dr. Juan Pérez es un destacado cirujano plástico, especializado en procedimientos estéticos faciales y corporales. Es profesor y miembro activo de la Sociedad de Cirugía Estética de Colombia, lo que refleja su compromiso con la formación continua y su liderazgo en el ámbito de la cirugía estética.",
+  //   yearsExperience: 10,
+  //   message:
+  //     "Creo que todos merecen sentirse bien con quienes son. Estoy aquí para ayudarte a resaltar lo mejor de ti.",
+  // },
 ];
 
 export default function Doctors() {
@@ -62,7 +62,7 @@ export default function Doctors() {
       </div>
 
       {/* Doctors Section (5/6 height) */}
-      <div className="h-5/6 flex flex-col lg:mt-10 lg:flex-row gap-6 px-4 md:px-8">
+      <div className="h-5/6 flex flex-col justify-center items-center lg:mt-10 lg:flex-row gap-6 px-4 md:px-8">
         {doctors.map((doc) => (
           <div key={doc.id} className="w-full lg:w-1/2 h-full relative flex">
             {/* Doctor Image */}
@@ -73,7 +73,7 @@ export default function Doctors() {
             />
 
             {/* Overlay with Doctor Info */}
-            {/* <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60 flex flex-col justify-end  space-y-4 p-4 md:p-8 text-white transition-opacity">
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60 flex flex-col justify-end  space-y-4 p-4 md:p-8 text-white transition-opacity">
               <h2 className="text-xl md:text-3xl   font-bold">{doc.name}</h2>
               <h3 className="text-lg md:text-2xl  ">{doc.specialization}</h3>
               <p className="hidden md:block text-lg md:text-xl italic">
@@ -89,7 +89,7 @@ export default function Doctors() {
                   </span>
                 </a>
               </div>
-            </div> */}
+            </div>
           </div>
         ))}
       </div>

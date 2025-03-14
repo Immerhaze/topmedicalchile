@@ -30,8 +30,8 @@ export default function Navbar({ fixed }) {
   const navbuttons = [
     { title: "Sobre Nosotros", href: "/" },
     { title: "Procedimientos", href: "/procedimientos" },
-    { title: "Equipo Médico", href: "#medicos" },
-    { title: "Contacto", href: "#contacto" },
+    { title: "Equipo Médico", href: "/medicos" },
+    { title: "Contacto", href: "/#contacto" },
   ];
 
   return (
@@ -61,16 +61,16 @@ export default function Navbar({ fixed }) {
           className={`w-full h-full flex flex-row justify-center items-center  text-lg md:text-xl  tracking-wider`}
         >
           <li className=" m-4 hover:scale-110 transition-all duration-300 cursor-pointer font-medium font-sans">
-            <a href="#procedimientos">Procedimientos</a>
+            <a href="/#procedimientos">Procedimientos</a>
           </li>
           <li className=" m-4 hover:scale-110 transition-all duration-300 cursor-pointer font-medium font-sans">
-            <a href="#medicos">Equipo</a>
+            <a href="/#medicos">Equipo</a>
           </li>
           <li className=" m-4 hover:scale-110 transition-all duration-300 cursor-pointer font-medium font-sans">
-            <a href="#proceso">Proceso</a>
+            <a href="/#proceso">Proceso</a>
           </li>
           <li className=" m-4 hover:scale-110 transition-all duration-300 cursor-pointer font-medium font-sans">
-            <a href="#contacto">Contacto</a>
+            <a href="/#contacto">Contacto</a>
           </li>
         </ul>
       </div>
